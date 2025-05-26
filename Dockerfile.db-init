@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copiar archivos de requerimientos primero para aprovechar la caché de Docker
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar la aplicación
+COPY app/ ./app/
+COPY init_database.py .
+
+# Cambiar a un usuario no root para mayor seguridad
+RUN useradd -m hydrous
+USER hydrous
+
+# El comando que se ejecutará cuando se inicie el contenedor
+CMD ["python", "init_database.py"]

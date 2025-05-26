@@ -1,0 +1,119 @@
+
+services:
+  # Servicio de PostgreSQL con pgvector para capacidades vectoriales
+  postgres:
+    image: ankane/pgvector:latest
+    container_name: hydrous_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-hydrous}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-hydrous_password}
+      POSTGRES_DB: ${POSTGRES_DB:-hydrous_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - hydrous-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hydrous"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Servicio de Redis para caching, rate limiting y blacklists
+  redis:
+    image: redis:7.0-alpine
+    container_name: hydrous_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - hydrous-network
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_password}
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-redis_password}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Interfaz para administrar PostgreSQL (opcional)
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: hydrous_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@hydrous.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+    ports:
+      - "5050:80"
+    networks:
+      - hydrous-network
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  # Interfaz para administrar Redis (opcional)
+  redis-commander:
+    image: rediscommander/redis-commander
+    container_name: hydrous_redis_commander
+    environment:
+      REDIS_HOSTS: redis:redis:6379:0:${REDIS_PASSWORD:-redis_password}
+    ports:
+      - "8081:8081"
+    networks:
+      - hydrous-network
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  # Servicio de API FastAPI (opcional durante desarrollo)
+  api:
+    image: hydrous-backend:latest
+    container_name: hydrous_api
+    volumes:
+      - .:/app
+      - ./uploads:/app/uploads
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-hydrous}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-hydrous_password}
+      - POSTGRES_SERVER=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=${POSTGRES_DB:-hydrous_db}
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_password}@redis:6379/0
+      - BACKEND_URL=${BACKEND_URL:-http://localhost:8000}
+      - DEBUG=${DEBUG:-True}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-temporalsecretkey123456789}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - MODEL=${MODEL:-gpt-4o-mini}
+    networks:
+      - hydrous-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+# Definición de redes
+networks:
+  hydrous-network:
+    driver: bridge
+
+# Definición de volúmenes persistentes
+volumes:
+  postgres_data:
+  redis_data:
+  uploads_data:

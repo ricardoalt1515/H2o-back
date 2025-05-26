@@ -1,0 +1,4182 @@
+{
+  "sectors": [
+    "Industrial",
+    "Comercial",
+    "Municipal",
+    "Residencial"
+  ],
+  "subsectors": {
+    "Industrial": [
+      "Alimentos y Bebidas",
+      "Textil",
+      "Petroquímica",
+      "Farmacéutica",
+      "Minería",
+      "Petróleo y Gas",
+      "Metal/Automotriz",
+      "Cemento",
+      "Otro"
+    ],
+    "Comercial": [
+      "Hotel",
+      "Edificio de oficinas",
+      "Centro comercial/Comercio minorista",
+      "Restaurante"
+    ],
+    "Municipal": [
+      "Gobierno de la ciudad",
+      "Pueblo/Aldea",
+      "Autoridad de servicios de agua"
+    ],
+    "Residencial": [
+      "Vivienda unifamiliar",
+      "Edificio multifamiliar"
+    ]
+  },
+  "general_introduction": "¡Hola! Gracias por tomarte el tiempo para responder estas preguntas. La información que nos compartas nos ayudará a diseñar una solución de agua personalizada, eficiente y rentable para tu operación. No te preocupes si no tienes todas las respuestas a la mano; iremos paso a paso y te explicaré por qué cada pregunta es importante. ¡Empecemos!",
+  "questions": {
+    "pre_technical_introduction": "Antes de entrar en detalles técnicos, me gustaría conocer un poco más sobre tu empresa y el sector en el que opera. Esto nos ayudará a entender mejor tus necesidades y diseñar una solución de agua adecuada para ti. Vamos con las primeras preguntas.",
+    "basic_info_introduction": "Para continuar, quiero conocer algunos datos clave sobre tu empresa, como la ubicación y el costo del agua. Estos factores pueden influir en la viabilidad de distintas soluciones. Por ejemplo, en ciertas regiones, el agua puede ser más costosa o escasa, lo que hace que una solución de tratamiento o reutilización sea aún más valiosa. ¡Vamos con las siguientes preguntas!",
+    "quality_info_introduction": "Ahora vamos a hablar un poco más sobre la calidad del agua y los requerimientos técnicos. Esta información es crucial porque cada fuente de agua y cada proceso industrial tienen características únicas. Saber más sobre los contaminantes o parámetros normativos nos permite diseñar una solución eficiente y adaptada a tus necesidades. ¡Hablemos más sobre esto!",
+    "motivation_introduction": "Cada empresa tiene diferentes motivaciones para invertir en soluciones hídricas. Algunos necesitan cumplir con regulaciones, otros quieren reducir costos o mejorar la sostenibilidad. Entendiendo tu principal objetivo nos ayuda a priorizar las tecnologías adecuadas y garantizar que la solución se alinee con su negocio. objetivos. ¡Háganos saber qué es lo que impulsa este proyecto para usted!",
+    "constraints_introduction": "Cada proyecto presenta su propio conjunto de desafíos, ya sean limitaciones de espacio, presupuesto limitaciones o requisitos reglamentarios. Al comprender estos factores desde el principio, podemos diseñar un sistema que se ajuste a sus limitaciones y al mismo tiempo ofrezca el mejor rendimiento posible. Si hay inquietudes específicas, ¡háganoslo saber para que podamos incluirlas en nuestras recomendaciones!",
+    "final_step_introduction": "Por último, repasaremos el presupuesto, las opciones de financiación y los plazos. Algunas empresas prefieren hacerlo por adelantado inversiones, mientras que otros exploran soluciones de financiación. Si tienes un presupuesto estimado o específico Teniendo en cuenta el plazo, compartir esos detalles nos ayuda a proponer la solución más realista y factible. Y, por supuesto, ¡necesitaremos sus datos de contacto para realizar un seguimiento con una propuesta personalizada!",
+    "Industrial_Alimentos y Bebidas": [
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text",
+        "explanation": "Permite identificar y personalizar la propuesta."
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text",
+        "explanation": "Importante para normativas locales, logística y disponibilidad de agua."
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text",
+        "explanation": "Esencial para calcular el retorno de inversión (ROI)."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text",
+        "explanation": "Permite dimensionar el sistema de tratamiento y estimar capacidades."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text",
+        "explanation": "Ayuda a definir cuánta agua se puede recuperar/reciclar."
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ],
+        "explanation": "Estima la carga sanitaria y ayuda a dimensionar líneas separadas si es necesario."
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text",
+        "explanation": "Dimensiona equipos para condiciones normales y picos."
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "explanation": "Fundamental para conocer la composición del agua a tratar y seleccionar la tecnología adecuada.",
+        "sub_questions_if_no_file": [
+          {
+            "id": "param_dbo",
+            "text": "DBO (Demanda Bioquímica de Oxigeno)",
+            "type": "text"
+          },
+          {
+            "id": "param_dqo",
+            "text": "DQO (Demanda química de Oxigeno)",
+            "type": "text"
+          },
+          {
+            "id": "param_sst",
+            "text": "SST (Solidos Suspendidos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "param_sdt",
+            "text": "SDT (Solidos Disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "param_ph",
+            "text": "pH (Potencial Hidrogeno)",
+            "type": "text"
+          },
+          {
+            "id": "param_grasas_aceites",
+            "text": "Grasas y Aceites",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles son sus principales usos del agua.",
+        "type": "checkbox",
+        "options": [
+          "Agua como materia Prima",
+          "Limpieza y Saneamiento",
+          "Procesos de enfriamiento",
+          "Generación de (calderas)",
+          "Tratamiento de agua residuales"
+        ],
+        "explanation": "Identifica los puntos críticos de consumo y potencial de reúso."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ],
+        "explanation": "La fuente determina la calidad inicial del agua y posibles pre-tratamientos."
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text",
+        "explanation": "Relevante si se requiere un sistema de potabilización o si el agua tratada debe cumplir normas de potabilidad."
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file",
+        "explanation": "Necesario para diseñar un sistema de potabilización adecuado si aplica."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true,
+        "explanation": "Define la prioridad del proyecto (cumplimiento, ahorro, sostenibilidad, etc.)."
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true,
+        "explanation": "Determina la calidad final requerida para el agua tratada."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true,
+        "explanation": "Define las normativas de descarga aplicables."
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true,
+        "explanation": "Identifica limitaciones clave para el diseño (espacio, presupuesto, normas, etc.)."
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "explanation": "Evalúa si se puede integrar o modificar infraestructura existente.",
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text",
+        "explanation": "Define el rango económico para proponer soluciones viables."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text",
+        "explanation": "Establece la urgencia y el cronograma deseado."
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ],
+        "explanation": "Indica la situación financiera y si se requieren opciones de financiamiento."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        },
+        "explanation": "Ayuda a verificar costos y consumos reales."
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        },
+        "explanation": "Permite alinear la propuesta con los planes del cliente."
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true,
+        "explanation": "Considera la escalabilidad futura del sistema."
+      }
+    ],
+    "Industrial_Textil": [
+      // Copiar estructura de Alimentos y Bebidas, ajustando preguntas específicas:
+      // - Pregunta 8 (análisis residual): Color, SST, pH, Metales pesados (Hg, As, Pb etc.), DQO, DBO
+      // - Pregunta 9 (usos): Lavado de telas, Teñido e impresión, Enjuague y acabado, Agua de refrigeración, Agua para Calderas
+      // Adaptar IDs si es necesario (e.g., "textil_param_color")
+      // ... (Omitido por brevedad, pero seguiría la misma estructura que Alimentos y Bebidas con los cambios mencionados)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "textil_param_color",
+            "text": "Color",
+            "type": "text"
+          },
+          {
+            "id": "textil_param_sst",
+            "text": "SST (Solidos suspendidos)",
+            "type": "text"
+          },
+          {
+            "id": "textil_param_ph",
+            "text": "pH (Potencial Hidrogeno)",
+            "type": "text"
+          },
+          {
+            "id": "textil_param_metales",
+            "text": "Metales pesados (Mercurio, arsénico, plomo etc.)",
+            "type": "text"
+          },
+          {
+            "id": "textil_param_dqo",
+            "text": "DQO (Demanda química de oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "textil_param_dbo",
+            "text": "DBO (Demanda bioquímica de oxígeno)",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuales son sus usos en su empresa:",
+        "type": "checkbox",
+        "options": [
+          "Lavado de telas",
+          "Teñido e impresión",
+          "Enjuague y acabado",
+          "Agua de refrigeración",
+          "Agua para Calderas (generación de vapor)"
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Petroquímica": [
+      // Copiar estructura, ajustar preguntas específicas:
+      // - Pregunta 8 (análisis residual): SDT, Hidrocarburos, pH, DQO, Metales pesados
+      // - Pregunta 10 (usos): Agua de enfriamiento, Agua de procesos (Reacciones químicas), Generación de vapor, Agua contraincendios
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "petroq_param_sdt",
+            "text": "SDT (Solidos disueltos totales)",
+            "type": "text"
+          },
+          {
+            "id": "petroq_param_hidrocarburos",
+            "text": "Hidrocarburos",
+            "type": "text"
+          },
+          {
+            "id": "petroq_param_ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "petroq_param_dqo",
+            "text": "DQO (Demanda química de Oxigeno)",
+            "type": "text"
+          },
+          {
+            "id": "petroq_param_metales",
+            "text": "Metales pesados",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles son sus usos",
+        "type": "checkbox",
+        "options": [
+          "Agua de enfriamiento",
+          "Agua de procesos (Reacciones químicas)",
+          "Generación de vapor",
+          "Agua contraincendios"
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuales son sus fuentes de agua",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Farmacéutica": [
+      // Copiar estructura, ajustar preguntas específicas:
+      // - Pregunta 8 (análisis residual): Bacterias y patógenos, Conductividad, pH, Carbón orgánico Total, Endotoxinas, Antibióticos
+      // - Pregunta 10 (fuentes): Agua Municipal, Agua de pozo, Sistema de agua purificada
+      // - Pregunta 11 (usos): Formulación y producción de medicamentos, Equipo de esterilización, Enfriamiento de agua, Agua para calderas (generación de vapor)
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "farma_param_bacterias",
+            "text": "Bacterias y patógenos",
+            "type": "text"
+          },
+          {
+            "id": "farma_param_conductividad",
+            "text": "Conductividad",
+            "type": "text"
+          },
+          {
+            "id": "farma_param_ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "farma_param_cot",
+            "text": "Carbón orgánico Total",
+            "type": "text"
+          },
+          {
+            "id": "farma_param_endotoxinas",
+            "text": "Endotoxinas",
+            "type": "text"
+          },
+          {
+            "id": "farma_param_antibioticos",
+            "text": "Antibióticos",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuáles son sus fuentes",
+        "type": "options",
+        "options": [
+          "Agua Municipal",
+          "Agua de pozo",
+          "Sistema de agua purificada"
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles son sus usos",
+        "type": "checkbox",
+        "options": [
+          "Formulación y producción de medicamentos",
+          "Equipo de esterilización",
+          "Enfriamiento de agua",
+          "Agua para calderas (generación de vapor)"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Minería": [
+      // Copiar estructura, ajustar preguntas específicas:
+      // - Pregunta 8 (análisis residual): Metales Pesados, SST, Acidez y alcalinidad, SDT, Cianuros y Sulfatos
+      // - Pregunta 10 (fuentes): Agua de una fuente natural (agua de ríos), Agua de pozo, Cosecha de agua Pluvial
+      // - Pregunta 11 (usos): Procesamiento de minerales, Supresión de polvos, Refrigeración de equipos, Consumo en los trabajadores
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "mineria_param_metales",
+            "text": "Metales Pesados",
+            "type": "text"
+          },
+          {
+            "id": "mineria_param_sst",
+            "text": "SST (Solidos suspendidos totales)",
+            "type": "text"
+          },
+          {
+            "id": "mineria_param_acidez",
+            "text": "Acidez y alcalinidad",
+            "type": "text"
+          },
+          {
+            "id": "mineria_param_sdt",
+            "text": "SDT (solidos disueltos totales)",
+            "type": "text"
+          },
+          {
+            "id": "mineria_param_cianuros",
+            "text": "Cianuros y Sulfatos",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuáles son sus fuentes",
+        "type": "options",
+        "options": [
+          "Agua de una fuente natural (agua de ríos)",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles son sus usos",
+        "type": "checkbox",
+        "options": [
+          "Procesamiento de minerales",
+          "Supresión de polvos",
+          "Refrigeración de equipos",
+          "Consumo en los trabajadores"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Petróleo y Gas": [
+      // Copiar estructura, ajustar preguntas específicas:
+      // - Pregunta 8 (análisis residual): Hidrocarburos, SDT Solidos disueltos, pH, Solidos Suspendidos, Metales pesados
+      // - Pregunta 10 (usos): Recuperación mejorada de petróleo, Preparación del fluido de perforación, Procesos de refinería, Sistemas de enfriamiento
+      // - Pregunta 11 (fuentes): Fuente natural de agua (Rio, Lago, cosecha de lluvia), Fuente Municipal
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "oilgas_param_hidrocarburos",
+            "text": "Hidrocarburos",
+            "type": "text"
+          },
+          {
+            "id": "oilgas_param_sdt",
+            "text": "SDT Solidos disueltos",
+            "type": "text"
+          },
+          {
+            "id": "oilgas_param_ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "oilgas_param_ss",
+            "text": "Solidos Suspendidos",
+            "type": "text"
+          },
+          {
+            "id": "oilgas_param_metales",
+            "text": "Metales pesados",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuales son sus usos",
+        "type": "checkbox",
+        "options": [
+          "Recuperación mejorada de petróleo",
+          "Preparación del fluido de perforación",
+          "Procesos de refinería",
+          "Sistemas de enfriamiento"
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuales son sus fuentes de abastecimiento",
+        "type": "options",
+        "options": [
+          "Fuente natural de agua (Rio, Lago, cosecha de lluvia)",
+          "Fuente Municipal"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Metal/Automotriz": [
+      // Copiar estructura, ajustar preguntas específicas:
+      // - Pregunta 8/11 (análisis residual): Metales pesados (Zinc, Cromo; Nickel), Grasas y aceites, pH, SST Solidos suspendidos, Conductividad, DQO
+      // - Pregunta 12 (usos): Lavado de piezas, Acabado de metales (galvanoplastia, pintura), Sistemas de refrigeración
+      // - Pregunta 13 (fuentes): Agua Municipal, Agua de pozo, Sistema de agua purificada
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "metal_param_metales",
+            "text": "Metales pesados (Zinc, Cromo; Nickel)",
+            "type": "text"
+          },
+          {
+            "id": "metal_param_grasas",
+            "text": "Grasas y aceites",
+            "type": "text"
+          },
+          {
+            "id": "metal_param_ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "metal_param_sst",
+            "text": "SST Solidos suspendidos",
+            "type": "text"
+          },
+          {
+            "id": "metal_param_conductividad",
+            "text": "Conductividad",
+            "type": "text"
+          },
+          {
+            "id": "metal_param_dqo",
+            "text": "DQO (Demanda química de oxígeno)",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles son sus usos.",
+        "type": "checkbox",
+        "options": [
+          "Lavado de piezas",
+          "Acabado de metales (galvanoplastia, pintura)",
+          "Sistemas de refrigeración"
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuales son las fuentes de agua",
+        "type": "options",
+        "options": [
+          "Agua Municipal",
+          "Agua de pozo",
+          "Sistema de agua purificada"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Cemento": [
+      // Copiar estructura, ajustar preguntas específicas:
+      // - Pregunta 8/10 (análisis residual): Ph, SSS (Solidos suspendidos), Conductividad, Sulfatos, DQO
+      // - Pregunta 11 (usos): Mezclado de concreto, Enfriamiento, Supresión de polvo, Otros
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "cemento_param_ph",
+            "text": "Ph",
+            "type": "text"
+          },
+          {
+            "id": "cemento_param_sss",
+            "text": "SSS (Solidos suspendidos)",
+            "type": "text"
+          },
+          {
+            "id": "cemento_param_conductividad",
+            "text": "Conductividad",
+            "type": "text"
+          },
+          {
+            "id": "cemento_param_sulfatos",
+            "text": "Sulfatos",
+            "type": "text"
+          },
+          {
+            "id": "cemento_param_dqo",
+            "text": "DQO (Demanda Química de oxígeno)",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles son sus usos",
+        "type": "checkbox",
+        "options": [
+          "Mezclado de concreto",
+          "Enfriamiento",
+          "Supresión de polvo",
+          "Otros (especifique)"
+        ],
+        "has_other_field": true
+      },
+      // Fuente de agua no está explícita en esta sección del OCR, heredar de genérico o preguntar
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua (Si aplica)",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial",
+          "Fuente natural",
+          "No aplica"
+        ],
+        "explanation": "La fuente determina la calidad inicial del agua."
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Industrial_Otro": [
+      // Genérico para "Otro" Industrial. Podría pedir descripción del proceso y parámetros clave.
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      // ... (Incluir todas las preguntas comunes de las otras secciones industriales)
+      {
+        "id": "otro_descripcion_proceso",
+        "text": "Por favor, describe brevemente el giro específico de tu empresa y los procesos principales que utilizan agua.",
+        "type": "textarea",
+        "explanation": "Necesario para entender las necesidades específicas al no encajar en las categorías predefinidas."
+      },
+      {
+        "id": "otro_parametros_clave",
+        "text": "Menciona los parámetros de calidad de agua residual más importantes para tu proceso (ej. DQO, SST, pH, metales, etc.)",
+        "type": "textarea",
+        "explanation": "Ayuda a identificar los contaminantes principales a tratar."
+      },
+      // ... (Resto de preguntas comunes: ubicación, costo, consumo, residuales, personas, volúmenes, usos, fuente, potable, objetivo, reuso, descarga, restricciones, infraestructura, presupuesto, tiempo, financiamiento, recibos, cronograma, futuro)
+      // ... (Omitido por brevedad)
+    ],
+    "Comercial_Hotel": [
+      // Estructura similar a Industrial pero adaptada a Comercial/Hotel
+      // - Pregunta 8/10 (análisis residual/parámetros): Cloro, Dureza, Microorganismos, SDT, Sílice
+      // - Pregunta 11 (usos): Suministro a habitaciones, Piscina y SPA, Lavandería
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "hotel_param_cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "hotel_param_dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "hotel_param_microorg",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "hotel_param_sdt",
+            "text": "SDT (Solidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "hotel_param_silice",
+            "text": "Sílice",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuales es su uso",
+        "type": "checkbox",
+        "options": [
+          "Suministro a habitaciones",
+          "Piscina y SPA",
+          "Lavandería"
+        ]
+      },
+      // Fuente de agua no está explícita, asumir genérico
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua (Si aplica)",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial",
+          "No aplica"
+        ],
+        "explanation": "La fuente determina la calidad inicial del agua."
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Comercial_Edificio de oficinas": [
+      // Estructura similar a Hotel
+      // - Pregunta 8/10 (análisis residual/parámetros): Cloro, Dureza, Microorganismos, SDT, Sílice
+      // - Pregunta 11 (usos): Consumo humano (potabilización), Refrigeración
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "oficina_param_cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "oficina_param_dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "oficina_param_microorg",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "oficina_param_sdt",
+            "text": "SDT (Solidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "oficina_param_silice",
+            "text": "Sílice",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles serán sus usos",
+        "type": "checkbox",
+        "options": [
+          "Consumo humano (potabilización)",
+          "Refrigeración"
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua (Si aplica)",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial",
+          "No aplica"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Comercial_Centro comercial/Comercio minorista": [
+      // Estructura similar a Hotel/Oficina
+      // - Pregunta 8/10 (análisis residual/parámetros): Cloro, Dureza, Microorganismos, SDT, Silice
+      // - Pregunta 11 (usos): Consumo humano (potabilización), Refrigeración, Alimentos, Otros
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "centrocom_param_cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "centrocom_param_dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "centrocom_param_microorg",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "centrocom_param_sdt",
+            "text": "SDT (Solidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "centrocom_param_silice",
+            "text": "Silice",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles serán sus usos",
+        "type": "checkbox",
+        "options": [
+          "Consumo humano (potabilización)",
+          "Refrigeración",
+          "Alimentos",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua (Si aplica)",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial",
+          "No aplica"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Comercial_Restaurante": [
+      // Estructura similar a otros comerciales
+      // - Pregunta 8/10 (análisis residual/parámetros): Cloro, Dureza, Microorganismos, SDT, Sílice (Podría incluir Grasas y Aceites adicionalmente)
+      // - Pregunta 11 (usos): Cocinar, Lavalozas, Preparación de bebidas
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_empresa",
+        "text": "Nombre usuario/cliente/nombre de la empresa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Colonia, Ciudad, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua",
+        "text": "Costo del agua (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "Cantidad de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "Cantidad de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas",
+        "text": "Aproximadamente cuantas personas (empleados, clientes, visitantes) atiende tus instalaciones por día o por semana (Número exacto o cercano preferible)",
+        "type": "options",
+        "options": [
+          "Menos de 20",
+          ">=20, <50",
+          ">50, < 200",
+          ">= 200, < 500",
+          ">=500<1000",
+          ">=1000<2000",
+          ">=2000<5000",
+          ">=5000"
+        ]
+      },
+      {
+        "id": "volumenes_promedio_picos_residual",
+        "text": "Volúmenes de agua promedios, picos de generación de agua residual",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual",
+        "text": "Subir/adjuntar análisis de agua residual (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "rest_param_cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "rest_param_dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "rest_param_microorg",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "rest_param_sdt",
+            "text": "SDT (Solidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "rest_param_silice",
+            "text": "Sílice",
+            "type": "text"
+          },
+          {
+            "id": "rest_param_grasas",
+            "text": "Grasas y Aceites (Opcional/Común)",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua",
+        "text": "Cuáles serán sus usos",
+        "type": "checkbox",
+        "options": [
+          "Cocinar",
+          "Lavalozas",
+          "Preparación de bebidas"
+        ]
+      },
+      {
+        "id": "fuente_agua",
+        "text": "Cuál es su fuente de agua (Si aplica)",
+        "type": "options",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial",
+          "No aplica"
+        ]
+      },
+      {
+        "id": "agua_potable_volumenes",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable",
+        "text": "Subir /adjuntar análisis de agua potable (de preferencia históricos) De no contar con ellos Puedes proveer los más importantes:",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "Cual es el objetivo principal que estas buscando",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga",
+        "text": "Objetivos de reusó del agua o descarga del agua tratada:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Rehusó en sanitarios",
+          "Rehusó en sus procesos industriales",
+          "Cumplimiento normativo",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas Esteros o Subsuelo)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias (Ejemplo: Limite de contaminantes permitido en la descarga tratad)",
+          "Calidad del agua en la entrada (Ejemplo: Parámetros complejos, dureza, metales, solidos disueltos, etc)",
+          "Limitaciones en las tecnologías disponibles (Ejemplo: Selección de procesos adecuados , Osmosis, ultrafiltración, etc)",
+          "Rangos de presupuestos (Descríbalos por favor)",
+          "Inversión inicial, elevados costos (construcción, equipamiento y puesta en marcha elevados)",
+          "Costos Operativos (Ejemplo: Energía, químicos, mantenimiento, mano de obra)",
+          "Manejo de residuos (Ejemplo: Disposición de lodos, concentrado de rechazo en la desalinización)",
+          "Disponibilidad de energía local",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente",
+        "text": "Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion",
+              "text": "Puedes describir brevemente los procesos",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos",
+              "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías de su sistemas y descripciones de su tecnología.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado",
+        "text": "Que presupuesto tiene estimado para le inversión en proyectos de agua",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible",
+        "text": "Cuenta con financimiento disponible",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua",
+        "text": "Puede proporcionarnos recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cronograma_implementacion",
+        "text": "Cuenta con un cronograma estimado para la implementación de los proyectos",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro",
+        "text": "Tiempo contemplado en el crecimiento de proyectos a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Municipal_Gobierno de la ciudad": [
+      // Estructura adaptada a Municipal
+      // - Pregunta 8/10 (análisis residual/parámetros): SST, SDT, Turbidez o color, DQO, DBO, G y A (Grasas y Aceites), Metales Pesados
+      // - Pregunta 11 (usos): Suministros de agua potable, Fuentes publicas
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_entidad",
+        "text": "Nombre de la entidad municipal/estatal",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Ciudad, Estado, código Postal, coordenadas relevantes)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua_ciudad",
+        "text": "Costo promedio del agua para usuarios (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida_ciudad",
+        "text": "Cantidad total de agua consumida en la red (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual_ciudad",
+        "text": "Cantidad total de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "poblacion_atendida",
+        "text": "Población aproximada atendida por la red",
+        "type": "number"
+      }, // Cambiado a number
+      {
+        "id": "volumenes_promedio_picos_residual_planta",
+        "text": "Volúmenes de agua promedios y picos de generación de agua residual en la(s) planta(s) de tratamiento",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual_planta",
+        "text": "Subir/adjuntar análisis de agua residual de la(s) planta(s) (de preferencia históricos). De no contar con ellos puedes proveer los más importantes:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "mun_param_sst",
+            "text": "SST (Solidos suspendidos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "mun_param_sdt",
+            "text": "SDT (Solidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "mun_param_turbidez",
+            "text": "Turbidez o color",
+            "type": "text"
+          },
+          {
+            "id": "mun_param_dqo",
+            "text": "DQO (Demanda química de Oxigeno)",
+            "type": "text"
+          },
+          {
+            "id": "mun_param_dbo",
+            "text": "DBO (Demanda química de oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "mun_param_gya",
+            "text": "G y A (Grasas y Aceites)",
+            "type": "text"
+          },
+          {
+            "id": "mun_param_metales",
+            "text": "Metales Pesados",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua_publica",
+        "text": "Uso del agua (infraestructura pública)",
+        "type": "checkbox",
+        "options": [
+          "Suministros de agua potable",
+          "Fuentes publicas",
+          "Riego de parques y jardines",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "fuente_agua_ciudad",
+        "text": "Cuál es la principal fuente de agua para la ciudad",
+        "type": "options",
+        "options": [
+          "Agua superficial (Ríos, Lagos, Embalses)",
+          "Agua subterránea (Pozos)",
+          "Desalinización",
+          "Otra"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "agua_potable_volumenes_planta",
+        "text": "Volúmenes de agua promedios, picos de producción de agua potable en la(s) planta(s)",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable_planta",
+        "text": "Subir /adjuntar análisis de agua potable producida (de preferencia históricos)",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal_municipal",
+        "text": "Cual es el objetivo principal del proyecto",
+        "type": "options",
+        "options": [
+          "Cumplimiento normativo (descarga/calidad)",
+          "Expansión de capacidad",
+          "Mejora de eficiencia operativa",
+          "Reducción de costos",
+          "Implementación de reúso",
+          "Aumento de cobertura",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga_municipal",
+        "text": "Objetivos de reusó del agua tratada o mejora en la descarga:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego agrícola/urbano",
+          "Reuso industrial",
+          "Recarga de acuíferos",
+          "Mejora calidad de descarga a cuerpo receptor",
+          "Cumplimiento normativo estricto",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual_planta",
+        "text": "¿Actualmente en donde descarga(n) la(s) planta(s) sus aguas residuales tratadas?",
+        "type": "options",
+        "options": [
+          "Cuerpo de agua natural (Ríos, Lagunas, Mar)",
+          "Reutilización",
+          "Infiltración",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto_municipal",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio (plantas existentes/nuevas)",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua cruda/residual (complejidad)",
+          "Limitaciones en tecnologías disponibles/aceptadas",
+          "Presupuesto asignado/Rangos",
+          "Fuentes de financiamiento (Federal, Estatal, Privado)",
+          "Costos Operativos (Energía, químicos, personal)",
+          "Manejo de lodos/residuos",
+          "Disponibilidad de energía",
+          "Impacto social/comunitario",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente_municipal",
+        "text": "Descripción de la infraestructura existente (Plantas de tratamiento de agua residual y potable)",
+        "type": "textarea"
+      },
+      {
+        "id": "infraestructura_archivos_municipal",
+        "text": "Subir / Adjuntar diagramas de proceso, layouts, fotografías, descripciones.",
+        "type": "file"
+      },
+      {
+        "id": "presupuesto_estimado_municipal",
+        "text": "Que presupuesto tiene estimado para la inversión en este proyecto",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto_municipal",
+        "text": "En que tiempo tiene contemplado llevar a cabo el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible_municipal",
+        "text": "Cuenta con financiamiento asegurado o identificado",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "En proceso"
+        ]
+      },
+      {
+        "id": "recibos_agua_municipal",
+        "text": "¿Es posible proporcionar datos de tarifas o costos operativos?",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ]
+      },
+      {
+        "id": "cronograma_implementacion_municipal",
+        "text": "Cuenta con un cronograma estimado para la implementación",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cronograma_implementacion_archivo_municipal",
+              "text": "Adjuntar cronograma estimado.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro_municipal",
+        "text": "Tiempo contemplado en el crecimiento/expansión futura",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Largo Plazo (>3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Municipal_Pueblo/Aldea": [
+      // Estructura similar a Gobierno Ciudad pero simplificada
+      // - Pregunta 8/10 (análisis residual/parámetros): SDT, Bacterias, Dureza Total (enfocado a potable/riego)
+      // - Pregunta 11 (usos): Suministro de agua potable, Riego
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_entidad",
+        "text": "Nombre del Pueblo/Aldea/Villa",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación (Municipio, Estado, código Postal, coordenadas)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua_pueblo",
+        "text": "Costo del agua para usuarios (si aplica) (moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida_pueblo",
+        "text": "Cantidad estimada de agua consumida (Unidad de medición/unidad tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_residual_pueblo",
+        "text": "Cantidad estimada de aguas residuales generadas (unidad de medición/unidad de tiempo)",
+        "type": "text"
+      },
+      {
+        "id": "poblacion_atendida",
+        "text": "Población aproximada atendida",
+        "type": "number"
+      },
+      {
+        "id": "volumenes_promedio_picos_residual_pueblo",
+        "text": "Volúmenes de agua promedios y picos de generación de agua residual (si se colecta)",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_residual_pueblo",
+        "text": "Subir/adjuntar análisis de agua residual (si existe). De no contar, proveer parámetros clave si se conocen:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          // Enfocado a calidad de agua cruda si no hay tratamiento
+          {
+            "id": "pueblo_param_sdt",
+            "text": "SDT (Solidos disueltos Totales) - Agua Cruda/Residual",
+            "type": "text"
+          },
+          {
+            "id": "pueblo_param_bacterias",
+            "text": "Bacterias (Coliformes) - Agua Cruda/Residual",
+            "type": "text"
+          },
+          {
+            "id": "pueblo_param_dureza",
+            "text": "Dureza Total - Agua Cruda",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua_pueblo",
+        "text": "Usos del agua",
+        "type": "checkbox",
+        "options": [
+          "Suministro de agua potable",
+          "Riego",
+          "Uso doméstico general",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "fuente_agua_pueblo",
+        "text": "Cuál es la principal fuente de agua",
+        "type": "options",
+        "options": [
+          "Pozo comunitario/individual",
+          "Manantial",
+          "Río/Arroyo cercano",
+          "Agua de lluvia",
+          "Red municipal cercana",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "agua_potable_volumenes_pueblo",
+        "text": "Volúmenes de agua promedios, picos de consumo de agua potable",
+        "type": "text"
+      },
+      {
+        "id": "analisis_agua_potable_pueblo",
+        "text": "Subir /adjuntar análisis de agua de la fuente (preferible)",
+        "type": "file"
+      },
+      {
+        "id": "objetivo_principal_pueblo",
+        "text": "Cual es el objetivo principal del proyecto",
+        "type": "options",
+        "options": [
+          "Proveer agua potable segura",
+          "Tratar aguas residuales",
+          "Mejorar sistema de riego",
+          "Cumplir normativa",
+          "Reducir enfermedades",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga_pueblo",
+        "text": "Objetivos de reusó del agua o descarga:",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego",
+          "Descarga segura al ambiente",
+          "No aplica (enfocado a potabilización)",
+          "Otro Especifique"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "descarga_actual_pueblo",
+        "text": "¿Actualmente en donde se descargan las aguas residuales?",
+        "type": "options",
+        "options": [
+          "Fosas sépticas/letrinas",
+          "Directo al suelo/cuerpo de agua",
+          "No hay sistema",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto_pueblo",
+        "text": "Cuenta con algunas restricciones adicionales del proyecto:",
+        "type": "checkbox",
+        "options": [
+          "Limitaciones de espacio",
+          "Normativas aplicables",
+          "Calidad del agua cruda",
+          "Tecnologías apropiadas (sencillez, bajo costo Op)",
+          "Presupuesto limitado",
+          "Disponibilidad de financiamiento",
+          "Costos Operativos (Energía mínima)",
+          "Manejo de residuos (si aplica)",
+          "Disponibilidad de energía (limitada/nula)",
+          "Aceptación comunitaria",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente_pueblo",
+        "text": "Cuenta con algún sistema existente (pozo, tanque, red simple, fosa séptica)",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion_pueblo",
+              "text": "Puedes describir brevemente",
+              "type": "textarea"
+            },
+            {
+              "id": "infraestructura_archivos_pueblo",
+              "text": "Subir fotos o descripción.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado_pueblo",
+        "text": "Que presupuesto tiene estimado o disponible",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto_pueblo",
+        "text": "En que tiempo se necesita/desea el proyecto",
+        "type": "text"
+      },
+      {
+        "id": "financiamiento_disponible_pueblo",
+        "text": "Cuenta con financiamiento",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Buscando apoyo"
+        ]
+      },
+      {
+        "id": "recibos_agua_pueblo",
+        "text": "¿Existen tarifas o costos asociados al agua actualmente?",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ]
+      },
+      {
+        "id": "cronograma_implementacion_pueblo",
+        "text": "Hay un cronograma deseado",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ]
+      },
+      {
+        "id": "tiempo_crecimiento_futuro_pueblo",
+        "text": "Se espera crecimiento poblacional a futuro",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Largo Plazo (>3 años)",
+          "Poco probable"
+        ],
+        "has_other_field": false
+      } // Ajustado
+    ],
+    "Municipal_Autoridad de servicios de agua": [
+      // Similar a Gobierno de la ciudad, pero potencialmente enfocado en una entidad específica operadora.
+      // Las preguntas serían casi idénticas a "Gobierno de la ciudad".
+      // ... (Omitido por brevedad, sería una copia de "Municipal_Gobierno de la ciudad" con IDs ajustados si se desea diferenciar)
+      {
+        "id": "nombre_entidad",
+        "text": "Nombre de la Autoridad/Organismo Operador",
+        "type": "text"
+      },
+      // ... Resto de preguntas idénticas a "Municipal_Gobierno de la ciudad" ...
+      {
+        "id": "tiempo_crecimiento_futuro_autoridad",
+        "text": "Tiempo contemplado en el crecimiento/expansión futura",
+        "type": "options",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Largo Plazo (>3 años)",
+          "Otro especifique"
+        ],
+        "has_other_field": true
+      }
+    ],
+    "Residencial_Vivienda unifamiliar": [
+      // Estructura adaptada a Residencial
+      // - Pregunta 8/10 (parámetros clave): Dureza, Cloro, Microrganismos (enfocado a calidad de agua de entrada)
+      // - Pregunta 11/Usos (implícito): Bebidas, Preparación de alimentos, Limpieza persona, Riego jardines, Llenado piscina (opcional)
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_cliente",
+        "text": "Nombre del propietario/residente",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación de la vivienda (Calle, Colonia, Ciudad, CP)",
+        "type": "text"
+      },
+      {
+        "id": "costo_agua_res",
+        "text": "Costo del agua (si conoce, moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida_res",
+        "text": "Cantidad de agua consumida (promedio mensual, m³ o L)",
+        "type": "text"
+      },
+      // Cantidad residual no suele medirse, se infiere
+      {
+        "id": "cantidad_personas_res",
+        "text": "Número de habitantes en la vivienda",
+        "type": "number"
+      },
+      // Volúmenes residuales no aplican directamente
+      {
+        "id": "analisis_agua_entrada_res",
+        "text": "Subir/adjuntar análisis de agua de la red o pozo (si tiene). De no contar, indicar parámetros conocidos/problemáticos:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "res_param_dureza",
+            "text": "Dureza (ej. sarro)",
+            "type": "checkbox"
+          }, // Checkbox para indicar problema
+          {
+            "id": "res_param_cloro",
+            "text": "Cloro (olor/sabor)",
+            "type": "checkbox"
+          },
+          {
+            "id": "res_param_microorg",
+            "text": "Microorganismos (si es pozo/fuente no segura)",
+            "type": "checkbox"
+          },
+          {
+            "id": "res_param_otros",
+            "text": "Otros problemas (color, olor, sabor, sedimentos)",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua_res",
+        "text": "Usos principales del agua en la vivienda",
+        "type": "checkbox",
+        "options": [
+          "Consumo humano (beber, cocinar)",
+          "Baño/Ducha",
+          "Lavado de ropa/trastes",
+          "Riego de jardín",
+          "Llenado de piscina/jacuzzi",
+          "Limpieza general"
+        ]
+      },
+      {
+        "id": "fuente_agua_res",
+        "text": "Cuál es su fuente de agua",
+        "type": "options",
+        "options": [
+          "Red municipal",
+          "Pozo propio",
+          "Pipa",
+          "Otra"
+        ],
+        "has_other_field": true
+      },
+      // Agua potable es el foco principal
+      {
+        "id": "objetivo_principal_res",
+        "text": "Cual es el objetivo principal que busca",
+        "type": "options",
+        "options": [
+          "Mejorar calidad del agua para consumo",
+          "Eliminar sarro (dureza)",
+          "Tratar agua de pozo",
+          "Reutilizar agua (riego)",
+          "Ahorrar agua",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga_res",
+        "text": "Objetivos de reusó del agua (si aplica):",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de jardín",
+          "Lavado de patios/autos",
+          "Reuso en sanitarios",
+          "No aplica"
+        ],
+        "has_other_field": false
+      },
+      {
+        "id": "descarga_actual_res",
+        "text": "¿Actualmente en donde descarga sus aguas residuales?",
+        "type": "options",
+        "options": [
+          "Drenaje municipal",
+          "Fosa séptica",
+          "Biodigestor",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto_res",
+        "text": "Cuenta con algunas restricciones:",
+        "type": "checkbox",
+        "options": [
+          "Espacio limitado para equipos",
+          "Presupuesto",
+          "Regulaciones locales (si aplica)",
+          "Necesidad de bajo mantenimiento",
+          "Disponibilidad de energía eléctrica",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente_res",
+        "text": "Cuenta con algún sistema de tratamiento existente (filtro, suavizador, purificador, fosa séptica)",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion_res",
+              "text": "Puedes describir brevemente",
+              "type": "textarea"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado_res",
+        "text": "Que presupuesto tiene estimado para la inversión",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto_res",
+        "text": "En que tiempo desea realizar la instalación",
+        "type": "options",
+        "options": [
+          "Urgente",
+          "Próximos 3 meses",
+          "Próximos 6 meses",
+          "Sin prisa"
+        ]
+      },
+      {
+        "id": "financiamiento_disponible_res",
+        "text": "Cuenta con financiamiento",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Consideraría opciones"
+        ]
+      },
+      {
+        "id": "recibos_agua_res",
+        "text": "Puede proporcionar recibos del agua",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo_res",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      // Cronograma no suele aplicar
+      {
+        "id": "tiempo_crecimiento_futuro_res",
+        "text": "¿Planea cambios futuros en la vivienda (más habitantes, piscina, etc.)?",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Tal vez"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "cambios_futuros_res",
+              "text": "Describa brevemente los cambios",
+              "type": "textarea"
+            }
+          ]
+        }
+      }
+    ],
+    "Residencial_Edificio multifamiliar": [
+      // Similar a Vivienda Unifamiliar pero escalado
+      // - Pregunta 8/Parámetros: Dureza, Cloro, Microrganismos
+      // - Pregunta 13/Usos: Agua para consumo humano (Bebidas), Refrigeración (aire acondicionado), Usos comunes (limpieza, riego), Suministro a departamentos.
+      // ... (Omitido por brevedad)
+      {
+        "id": "nombre_admin",
+        "text": "Nombre del administrador o contacto del edificio",
+        "type": "text"
+      },
+      {
+        "id": "ubicacion",
+        "text": "Ubicación del edificio (Calle, Colonia, Ciudad, CP)",
+        "type": "text"
+      },
+      {
+        "id": "num_unidades",
+        "text": "Número de departamentos/unidades",
+        "type": "number"
+      },
+      {
+        "id": "costo_agua_multi",
+        "text": "Costo del agua (tarifa general, moneda/unidad de medición)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_agua_consumida_multi",
+        "text": "Cantidad de agua consumida (promedio mensual total, m³ o L)",
+        "type": "text"
+      },
+      {
+        "id": "cantidad_personas_multi",
+        "text": "Número aproximado de habitantes totales",
+        "type": "number"
+      },
+      {
+        "id": "analisis_agua_entrada_multi",
+        "text": "Subir/adjuntar análisis de agua de la red o pozo (si tiene). De no contar, indicar parámetros conocidos/problemáticos:",
+        "type": "file",
+        "sub_questions_if_no_file": [
+          {
+            "id": "multi_param_dureza",
+            "text": "Dureza (ej. sarro)",
+            "type": "checkbox"
+          },
+          {
+            "id": "multi_param_cloro",
+            "text": "Cloro (olor/sabor)",
+            "type": "checkbox"
+          },
+          {
+            "id": "multi_param_microorg",
+            "text": "Microorganismos (si es pozo/fuente no segura)",
+            "type": "checkbox"
+          },
+          {
+            "id": "multi_param_otros",
+            "text": "Otros problemas (color, olor, sabor, sedimentos)",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "principales_usos_agua_multi",
+        "text": "Usos principales del agua en el edificio",
+        "type": "checkbox",
+        "options": [
+          "Suministro a departamentos",
+          "Consumo humano (áreas comunes)",
+          "Refrigeración (aire acondicionado central)",
+          "Limpieza áreas comunes",
+          "Riego de jardines",
+          "Alberca/Gimnasio/SPA",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "fuente_agua_multi",
+        "text": "Cuál es su fuente de agua",
+        "type": "options",
+        "options": [
+          "Red municipal",
+          "Pozo propio",
+          "Combinación",
+          "Otra"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivo_principal_multi",
+        "text": "Cual es el objetivo principal que busca el edificio",
+        "type": "options",
+        "options": [
+          "Mejorar calidad del agua para todos",
+          "Reducir costos operativos (agua, energía)",
+          "Eliminar sarro en tuberías/equipos",
+          "Tratar agua de pozo",
+          "Implementar reúso de agua (riego)",
+          "Cumplir normativa (si aplica)",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "objetivos_reuso_descarga_multi",
+        "text": "Objetivos de reusó del agua (si aplica):",
+        "type": "checkbox",
+        "options": [
+          "Uso en riego de áreas comunes",
+          "Lavado de áreas comunes/estacionamiento",
+          "Reuso en sanitarios (comunes/todos)",
+          "No aplica"
+        ],
+        "has_other_field": false
+      },
+      {
+        "id": "descarga_actual_multi",
+        "text": "¿Actualmente en donde descarga sus aguas residuales el edificio?",
+        "type": "options",
+        "options": [
+          "Drenaje municipal",
+          "Planta de tratamiento propia",
+          "Fosa séptica grande",
+          "Otro"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "restricciones_proyecto_multi",
+        "text": "Cuenta con algunas restricciones:",
+        "type": "checkbox",
+        "options": [
+          "Espacio limitado (cuarto de máquinas, azotea)",
+          "Presupuesto (derrama/cuotas)",
+          "Regulaciones condominales/municipales",
+          "Necesidad de operación simple",
+          "Ruido/Vibración de equipos",
+          "Disponibilidad de energía",
+          "Otros"
+        ],
+        "has_other_field": true
+      },
+      {
+        "id": "infraestructura_existente_multi",
+        "text": "Cuenta con algún sistema centralizado existente (cisterna, bombeo, filtro, suavizador, planta tratamiento)",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "infraestructura_descripcion_multi",
+              "text": "Puedes describir brevemente",
+              "type": "textarea"
+            }
+          ]
+        }
+      },
+      {
+        "id": "presupuesto_estimado_multi",
+        "text": "Que presupuesto tiene estimado el edificio para la inversión",
+        "type": "text"
+      },
+      {
+        "id": "tiempo_proyecto_multi",
+        "text": "En que tiempo se desea implementar la solución",
+        "type": "options",
+        "options": [
+          "Urgente",
+          "Próximos 6 meses",
+          "Próximo año",
+          "Evaluando opciones"
+        ]
+      },
+      {
+        "id": "financiamiento_disponible_multi",
+        "text": "El edificio cuenta con fondos asignados",
+        "type": "options",
+        "options": [
+          "Si",
+          "No",
+          "Se buscaría financiamiento"
+        ]
+      },
+      {
+        "id": "recibos_agua_multi",
+        "text": "Puede proporcionar recibos del agua del edificio",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ],
+        "conditional_questions": {
+          "Si": [
+            {
+              "id": "recibos_agua_archivo_multi",
+              "text": "Adjuntar recibos de agua.",
+              "type": "file"
+            }
+          ]
+        }
+      },
+      {
+        "id": "tiempo_crecimiento_futuro_multi",
+        "text": "¿Se esperan cambios mayores en el edificio (remodelación, expansión)?",
+        "type": "options",
+        "options": [
+          "Si",
+          "No"
+        ]
+      }
+    ]
+  }
+}

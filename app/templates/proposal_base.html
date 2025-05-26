@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Propuesta Hydrous</title>
+    <style>
+        @page { size: A4; margin: 1.5cm; }
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.5; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 { 
+            color: #0056b3; 
+            margin-top: 1.4em; 
+            margin-bottom: 0.7em; 
+        }
+        h1 { 
+            font-size: 1.8em;
+            border-bottom: 2px solid #0056b3; 
+            padding-bottom: 0.2em; 
+        }
+        h2 { 
+            font-size: 1.5em;
+            border-bottom: 1px solid #ccc; 
+            padding-bottom: 0.1em; 
+        }
+        h3 { font-size: 1.2em; }
+        p { margin: 0.7em 0; }
+        
+        /* Estilos para tablas */
+        table.proposal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        table.proposal-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        table.proposal-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        /* Listas */
+        ul { margin: 0.7em 0; padding-left: 2em; }
+        li { margin-bottom: 0.3em; }
+        
+        /* Énfasis */
+        strong { font-weight: bold; }
+        em { font-style: italic; }
+        
+        /* Pie de página */
+        .footer { 
+            position: fixed; 
+            bottom: 1cm; 
+            left: 1.5cm; 
+            right: 1.5cm; 
+            text-align: center; 
+            font-size: 0.8em; 
+            color: #777; 
+        }
+        
+        /* Encabezados de página y saltos */
+        .page-break { page-break-after: always; }
+        .no-break { page-break-inside: avoid; }
+    </style>
+</head>
+<body>
+    <div class="content">
+        {{ content | safe }}
+    </div>
+    <div class="footer">
+        Página <pdf:pagenumber> de <pdf:pagecount> |
+        Documento generado por Hydrous AI. Las estimaciones son preliminares.
+    </div>
+</body>
+</html>
+                      

@@ -1,0 +1,3225 @@
+{
+  "introduction": {
+    "text": "¡Hola! Gracias por tomarte el tiempo para responder estas preguntas. La información que nos compartas nos ayudará a diseñar una solución de agua personalizada, eficiente y rentable para tu operación. No te preocupes si no tienes todas las respuestas a la mano; iremos paso a paso y te explicaré por qué cada pregunta es importante. ¡Empecemos!",
+    "explanation": "Antes de entrar en detalles técnicos, me gustaría conocer un poco más sobre tu empresa y el sector en el que opera. Esto nos ayudará a entender mejor tus necesidades y diseñar una solución de agua adecuada para ti. Vamos con las primeras preguntas."
+  },
+  "sectors": [
+    "Industrial",
+    "Comercial",
+    "Municipal",
+    "Residencial"
+  ],
+  "subsectors": {
+    "Industrial": [
+      "Alimentos y Bebidas",
+      "Textil",
+      "Petroquímica",
+      "Farmacéutica",
+      "Minería",
+      "Petróleo y Gas",
+      "Metal/Automotriz",
+      "Cemento"
+    ],
+    "Comercial": [
+      "Hotel",
+      "Edificio de oficinas",
+      "Centro comercial/Comercio minorista",
+      "Restaurante"
+    ],
+    "Municipal": [
+      "Gobierno de la ciudad",
+      "Pueblo/Aldea",
+      "Autoridad de servicios de agua"
+    ],
+    "Residencial": [
+      "Vivienda unifamiliar",
+      "Edificio multifamiliar"
+    ]
+  },
+  "common_intro": "Para continuar, quiero conocer algunos datos clave sobre tu empresa, como la ubicación y el costo del agua. Estos factores pueden influir en la viabilidad de distintas soluciones. Por ejemplo, en ciertas regiones, el agua puede ser más costosa o escasa, lo que hace que una solución de tratamiento o reutilización sea aún más valiosa. ¡Vamos con las siguientes preguntas!",
+  "technical_intro": "Ahora vamos a hablar un poco más sobre la calidad del agua y los requerimientos técnicos. Esta información es crucial porque cada fuente de agua y cada proceso industrial tienen características únicas. Saber más sobre los contaminantes o parámetros normativos nos permite diseñar una solución eficiente y adaptada a tus necesidades. ¡Hablemos más sobre esto!",
+  "objectives_intro": "Cada empresa tiene diferentes motivaciones para invertir en soluciones hídricas. Algunos necesitan cumplir con regulaciones, otros quieren reducir costos o mejorar la sostenibilidad. Entendiendo tu principal objetivo nos ayuda a priorizar las tecnologías adecuadas y garantizar que la solución se alinee con su negocio. objetivos. ¡Háganos saber qué es lo que impulsa este proyecto para usted!",
+  "constraints_intro": "Cada proyecto presenta su propio conjunto de desafíos, ya sean limitaciones de espacio, presupuesto limitaciones o requisitos reglamentarios. Al comprender estos factores desde el principio, podemos diseñar un sistema que se ajuste a sus limitaciones y al mismo tiempo ofrezca el mejor rendimiento posible. Si hay inquietudes específicas, ¡háganoslo saber para que podamos incluirlas en nuestras recomendaciones!",
+  "budget_intro": "Por último, repasaremos el presupuesto, las opciones de financiación y los plazos. Algunas empresas prefieren hacerlo por adelantado inversiones, mientras que otros exploran soluciones de financiación. Si tienes un presupuesto estimado o específico Teniendo en cuenta el plazo, compartir esos detalles nos ayuda a proponer la solución más realista y factible. Y, por supuesto, ¡necesitaremos sus datos de contacto para realizar un seguimiento con una propuesta personalizada!",
+  "questions": {
+    "Industrial_Alimentos y Bebidas": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "dbo",
+            "text": "DBO (Demanda Bioquímica de Oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "dqo",
+            "text": "DQO (Demanda Química de Oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "sst",
+            "text": "SST (Sólidos Suspendidos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos Disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "ph",
+            "text": "pH (Potencial Hidrógeno)",
+            "type": "text"
+          },
+          {
+            "id": "grasas_aceites",
+            "text": "Grasas y Aceites",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus principales usos del agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua como materia Prima",
+          "Limpieza y Saneamiento",
+          "Procesos de enfriamiento",
+          "Generación de vapor (calderas)",
+          "Tratamiento de agua residuales"
+        ],
+        "required": true,
+        "explanation": "Entender los usos nos ayuda a identificar oportunidades específicas de reciclaje y reuso del agua."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuál es tu fuente de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Industrial_Textil": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual textil?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "color",
+            "text": "Color",
+            "type": "text"
+          },
+          {
+            "id": "sst",
+            "text": "SST (Sólidos suspendidos)",
+            "type": "text"
+          },
+          {
+            "id": "ph",
+            "text": "pH (Potencial Hidrógeno)",
+            "type": "text"
+          },
+          {
+            "id": "metales_pesados",
+            "text": "Metales pesados (Mercurio, arsénico, plomo, etc.)",
+            "type": "text"
+          },
+          {
+            "id": "dqo",
+            "text": "DQO (Demanda química de oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "dbo",
+            "text": "DBO (Demanda bioquímica de oxígeno)",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria textil y críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuál es tu fuente de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu empresa textil?",
+        "type": "multiple_select",
+        "options": [
+          "Lavado de telas",
+          "Teñido e impresión",
+          "Enjuague y acabado",
+          "Agua de refrigeración",
+          "Agua para Calderas (generación de vapor)"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector textil nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Industrial_Petroquímica": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual petroquímica?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos totales)",
+            "type": "text"
+          },
+          {
+            "id": "hidrocarburos",
+            "text": "Hidrocarburos",
+            "type": "text"
+          },
+          {
+            "id": "ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "dqo",
+            "text": "DQO (Demanda química de Oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "metales_pesados",
+            "text": "Metales pesados",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria petroquímica y críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son los usos del agua en tu empresa?",
+        "type": "multiple_select",
+        "options": [
+          "Agua de enfriamiento",
+          "Agua de procesos (Reacciones químicas)",
+          "Generación de vapor",
+          "Agua contraincendios"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector petroquímico nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuáles son tus fuentes de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua municipal",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Industrial_Farmacéutica": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual farmacéutica?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "bacterias_patogenos",
+            "text": "Bacterias y patógenos",
+            "type": "text"
+          },
+          {
+            "id": "conductividad",
+            "text": "Conductividad",
+            "type": "text"
+          },
+          {
+            "id": "ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "carbon_organico",
+            "text": "Carbón orgánico Total",
+            "type": "text"
+          },
+          {
+            "id": "endotoxinas",
+            "text": "Endotoxinas",
+            "type": "text"
+          },
+          {
+            "id": "antibioticos",
+            "text": "Antibióticos",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria farmacéutica y críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuáles son tus fuentes de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua Municipal",
+          "Agua de pozo",
+          "Sistema de agua purificada"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu empresa farmacéutica?",
+        "type": "multiple_select",
+        "options": [
+          "Formulación y producción de medicamentos",
+          "Equipo de esterilización",
+          "Enfriamiento de agua",
+          "Agua para calderas (generación de vapor)"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector farmacéutico nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Industrial_Minería": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual minera?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "metales_pesados",
+            "text": "Metales Pesados",
+            "type": "text"
+          },
+          {
+            "id": "sst",
+            "text": "SST (Sólidos suspendidos totales)",
+            "type": "text"
+          },
+          {
+            "id": "acidez_alcalinidad",
+            "text": "Acidez y alcalinidad",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (sólidos disueltos totales)",
+            "type": "text"
+          },
+          {
+            "id": "cianuros_sulfatos",
+            "text": "Cianuros y Sulfatos",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria minera y críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuáles son tus fuentes de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua de una fuente natural (agua de ríos)",
+          "Agua de pozo",
+          "Cosecha de agua Pluvial"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu empresa minera?",
+        "type": "multiple_select",
+        "options": [
+          "Procesamiento de minerales",
+          "Supresión de polvos",
+          "Refrigeración de equipos",
+          "Consumo en los trabajadores"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector minero nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Industrial_Petróleo y Gas": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual de petróleo y gas?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "hidrocarburos",
+            "text": "Hidrocarburos",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos)",
+            "type": "text"
+          },
+          {
+            "id": "ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "sst",
+            "text": "Sólidos Suspendidos",
+            "type": "text"
+          },
+          {
+            "id": "metales_pesados",
+            "text": "Metales pesados",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria de petróleo y gas, y son críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu empresa?",
+        "type": "multiple_select",
+        "options": [
+          "Recuperación mejorada de petróleo",
+          "Preparación del fluido de perforación",
+          "Procesos de refinería",
+          "Sistemas de enfriamiento"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector de petróleo y gas nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuáles son tus fuentes de abastecimiento de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Fuente natural de agua (Río, Lago, cosecha de lluvia)",
+          "Fuente Municipal"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      }
+    ],
+    "Industrial_Metal/Automotriz": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual del sector metal/automotriz?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "metales_pesados",
+            "text": "Metales pesados (Zinc, Cromo, Níquel)",
+            "type": "text"
+          },
+          {
+            "id": "grasas_aceites",
+            "text": "Grasas y aceites",
+            "type": "text"
+          },
+          {
+            "id": "ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "sst",
+            "text": "SST (Sólidos suspendidos)",
+            "type": "text"
+          },
+          {
+            "id": "conductividad",
+            "text": "Conductividad",
+            "type": "text"
+          },
+          {
+            "id": "dqo",
+            "text": "DQO (Demanda química de oxígeno)",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria metal/automotriz y críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu empresa?",
+        "type": "multiple_select",
+        "options": [
+          "Lavado de piezas",
+          "Acabado de metales (galvanoplastia, pintura)",
+          "Sistemas de refrigeración"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector metal/automotriz nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "fuente_agua",
+        "text": "¿Cuáles son tus fuentes de agua?",
+        "type": "multiple_select",
+        "options": [
+          "Agua Municipal",
+          "Agua de pozo",
+          "Sistema de agua purificada"
+        ],
+        "required": true,
+        "explanation": "La fuente del agua afecta la calidad de entrada y las tecnologías más adecuadas para su tratamiento."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Industrial_Cemento": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua residual de la industria del cemento?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "ph",
+            "text": "pH",
+            "type": "text"
+          },
+          {
+            "id": "sst",
+            "text": "SST (Sólidos suspendidos)",
+            "type": "text"
+          },
+          {
+            "id": "conductividad",
+            "text": "Conductividad",
+            "type": "text"
+          },
+          {
+            "id": "sulfatos",
+            "text": "Sulfatos",
+            "type": "text"
+          },
+          {
+            "id": "dqo",
+            "text": "DQO (Demanda Química de oxígeno)",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son específicos de la industria del cemento y críticos para determinar el tipo de tratamiento necesario para tus aguas residuales."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu empresa?",
+        "type": "multiple_select",
+        "options": [
+          "Mezclado de concreto",
+          "Enfriamiento",
+          "Supresión de polvo",
+          "Otros (especifique)"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en el sector del cemento nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Comercial_Hotel": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes de tu agua?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "microorganismos",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "silice",
+            "text": "Sílice",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para tu hotel."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son tus usos del agua en tu hotel?",
+        "type": "multiple_select",
+        "options": [
+          "Suministro a habitaciones",
+          "Piscina y SPA",
+          "Lavandería"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en tu hotel nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      }
+    ],
+    "Comercial_Edificio de oficinas": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes del agua en tu edificio de oficinas?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "microorganismos",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "silice",
+            "text": "Sílice",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para tu edificio de oficinas."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles serán tus usos de agua en tu edificio de oficinas?",
+        "type": "multiple_select",
+        "options": [
+          "Consumo humano (potabilización)",
+          "Refrigeración"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en tu edificio de oficinas nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Comercial_Centro comercial/Comercio minorista": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes del agua en tu centro comercial?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "microorganismos",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "silice",
+            "text": "Sílice",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para tu centro comercial."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles serán tus usos de agua en tu centro comercial?",
+        "type": "multiple_select",
+        "options": [
+          "Consumo humano (potabilización)",
+          "Refrigeración",
+          "Alimentos",
+          "Otros"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en tu centro comercial nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      }
+    ],
+    "Comercial_Restaurante": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu empresa o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de tu empresa (Colonia, Ciudad, Código Postal, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizas (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consumes (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales generas (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas (empleados, clientes, visitantes) atienden tus instalaciones por día o por semana?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 20",
+          "Entre 20 y 49",
+          "Entre 50 y 199",
+          "Entre 200 y 499",
+          "Entre 500 y 999",
+          "Entre 1000 y 1999",
+          "Entre 2000 y 4999",
+          "5000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua sanitaria y permite dimensionar soluciones adicionales."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puedes proporcionar los parámetros más importantes del agua en tu restaurante?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "microorganismos",
+            "text": "Microorganismos",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "silice",
+            "text": "Sílice",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para tu restaurante."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles serán tus usos de agua en tu restaurante?",
+        "type": "multiple_select",
+        "options": [
+          "Cocinar",
+          "Lavalozas",
+          "Preparación de bebidas"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos en tu restaurante nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puedes proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que estás buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son tus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      },
+      {
+        "id": "restricciones",
+        "text": "¿Cuenta con algunas restricciones adicionales del proyecto?",
+        "type": "multiple_select",
+        "options": [
+          "Limitaciones de espacio y logística",
+          "Restricciones normativas o regulatorias",
+          "Calidad del agua en la entrada",
+          "Limitaciones en las tecnologías disponibles",
+          "Rangos de presupuestos específicos",
+          "Inversión inicial (costos de construcción, equipamiento)",
+          "Costos Operativos (energía, químicos, mantenimiento)",
+          "Manejo de residuos",
+          "Disponibilidad de energía local",
+          "Otros (especifique)"
+        ],
+        "required": false,
+        "explanation": "Conocer las restricciones nos permite diseñar una solución realista y adaptada a tus limitaciones específicas."
+      },
+      {
+        "id": "sistema_existente",
+        "text": "¿Cuenta con algún sistema de tratamiento de agua residual o sistema de potabilización?",
+        "type": "multiple_choice",
+        "options": [
+          "Sí",
+          "No"
+        ],
+        "required": true,
+        "explanation": "Si ya cuentas con sistemas, podemos evaluar su integración o mejora en lugar de proponer soluciones completamente nuevas."
+      },
+      {
+        "id": "descripcion_sistema",
+        "text": "Si cuentas con un sistema existente, ¿puedes describir brevemente los procesos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu infraestructura actual y cómo podemos complementarla o mejorarla."
+      },
+      {
+        "id": "presupuesto",
+        "text": "¿Qué presupuesto tienes estimado para la inversión en proyectos de agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu presupuesto nos ayuda a proponer soluciones que se ajusten a tus posibilidades financieras."
+      },
+      {
+        "id": "tiempo_proyecto",
+        "text": "¿En qué tiempo tienes contemplado llevar a cabo el proyecto?",
+        "type": "text",
+        "required": false,
+        "explanation": "El cronograma afecta la planificación y la implementación de la solución."
+      },
+      {
+        "id": "financiamiento",
+        "text": "¿Cuentas con financiamiento disponible?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender tu capacidad financiera y posibles opciones de pago."
+      },
+      {
+        "id": "recibos_agua",
+        "text": "¿Puedes proporcionarnos recibos del agua?",
+        "type": "text",
+        "required": false,
+        "explanation": "Los recibos proporcionan información precisa sobre consumos y costos actuales, mejorando la precisión de nuestros cálculos."
+      },
+      {
+        "id": "cronograma",
+        "text": "¿Cuentas con un cronograma estimado para la implementación de los proyectos?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer tu cronograma nos permite ajustar nuestra propuesta a tus tiempos y necesidades."
+      },
+      {
+        "id": "crecimiento_futuro",
+        "text": "¿Cuál es el tiempo contemplado para el crecimiento de proyectos a futuro?",
+        "type": "multiple_choice",
+        "options": [
+          "Inmediato (0-6 meses)",
+          "Corto plazo (6-12 meses)",
+          "Mediano plazo (1-3 años)",
+          "Otro (especifique)"
+        ],
+        "required": false,
+        "explanation": "Esta información nos permite diseñar sistemas escalables que puedan adaptarse a tu crecimiento futuro."
+      }
+    ],
+    "Municipal_Gobierno de la ciudad": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu municipio o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación del proyecto (Ciudad, Estado, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizan (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consume la comunidad (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales genera la comunidad (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas atiende esta infraestructura municipal?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 500",
+          "Entre 500 y 4,999",
+          "Entre 5,000 y 19,999",
+          "Entre 20,000 y 49,999",
+          "Entre 50,000 y 99,999",
+          "Entre 100,000 y 499,999",
+          "Entre 500,000 y 999,999",
+          "1,000,000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua y permite dimensionar soluciones adecuadas."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puede proporcionar los parámetros más importantes del agua residual municipal?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "sst",
+            "text": "SST (Sólidos suspendidos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "turbidez",
+            "text": "Turbidez o color",
+            "type": "text"
+          },
+          {
+            "id": "dqo",
+            "text": "DQO (Demanda química de Oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "dbo",
+            "text": "DBO (Demanda bioquímica de oxígeno)",
+            "type": "text"
+          },
+          {
+            "id": "grasas_aceites",
+            "text": "G y A (Grasas y Aceites)",
+            "type": "text"
+          },
+          {
+            "id": "metales_pesados",
+            "text": "Metales Pesados",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para tu localidad."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son los usos principales del agua?",
+        "type": "multiple_select",
+        "options": [
+          "Suministros de agua potable",
+          "Fuentes públicas"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos del agua nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puede proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que están buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      }
+    ],
+    "Municipal_Pueblo/Aldea": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de tu localidad o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de la localidad (Municipio, Estado, coordenadas)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utilizan (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consume la comunidad (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales genera la comunidad (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas viven en esta localidad?",
+        "type": "multiple_choice",
+        "options": [
+          "Menos de 100",
+          "Entre 100 y 499",
+          "Entre 500 y 999",
+          "Entre 1,000 y 4,999",
+          "Entre 5,000 y 9,999",
+          "Entre 10,000 y 24,999",
+          "25,000 o más"
+        ],
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua y permite dimensionar soluciones adecuadas."
+      },
+      {
+        "id": "picos_agua_residual",
+        "text": "¿Cuáles son los volúmenes de agua promedios y picos de generación de agua residual?",
+        "type": "text",
+        "required": false,
+        "explanation": "Conocer los picos de consumo nos permite dimensionar correctamente los sistemas para manejar la carga máxima."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puede proporcionar los parámetros más importantes del agua en su localidad?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "sdt",
+            "text": "SDT (Sólidos disueltos Totales)",
+            "type": "text"
+          },
+          {
+            "id": "bacterias",
+            "text": "Bacterias",
+            "type": "text"
+          },
+          {
+            "id": "dureza_total",
+            "text": "Dureza Total",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para tu localidad."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son los usos principales del agua?",
+        "type": "multiple_select",
+        "options": [
+          "Suministro de agua potable",
+          "Riego"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos del agua nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puede proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que están buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son sus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descargan sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      }
+    ],
+    "Residencial_Vivienda unifamiliar": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es su nombre o el nombre del proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación de su vivienda (Colonia, Ciudad, Código Postal)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utiliza (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consume su hogar (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales genera su hogar (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Cuántas personas viven en su hogar?",
+        "type": "text",
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua y permite dimensionar soluciones adecuadas."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puede proporcionar los parámetros más importantes del agua residencial?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "microorganismos",
+            "text": "Microorganismos",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para su hogar."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son los usos principales del agua en su hogar?",
+        "type": "multiple_select",
+        "options": [
+          "Bebidas",
+          "Preparación de alimentos",
+          "Limpieza personal"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos del agua nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puede proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que está buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      },
+      {
+        "id": "objetivo_reuso",
+        "text": "¿Cuáles son sus objetivos de reúso del agua o descarga del agua tratada?",
+        "type": "multiple_select",
+        "options": [
+          "Uso en riego de áreas verdes",
+          "Reúso en sanitarios",
+          "Reúso en procesos industriales",
+          "Cumplimiento normativo",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Estos objetivos específicos nos permiten diseñar el sistema para que el agua tratada cumpla con los requisitos de calidad para su reutilización."
+      },
+      {
+        "id": "descarga_actual",
+        "text": "¿Actualmente en dónde descarga sus aguas residuales?",
+        "type": "multiple_choice",
+        "options": [
+          "Alcantarillado",
+          "Cuerpo de agua natural (Ríos, Lagunas, Esteros o Subsuelo)",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "El punto de descarga actual puede estar sujeto a diferentes normativas y costos, lo que afecta el diseño de la solución."
+      }
+    ],
+    "Residencial_Edificio multifamiliar": [
+      {
+        "id": "nombre_empresa",
+        "text": "¿Cuál es el nombre de su edificio o proyecto?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+      },
+      {
+        "id": "ubicacion",
+        "text": "¿Cuál es la ubicación del edificio (Colonia, Ciudad, Código Postal)?",
+        "type": "text",
+        "required": true,
+        "explanation": "La ubicación es importante para entender factores regionales como la disponibilidad de agua, normativas locales y condiciones climáticas que pueden afectar a tu solución."
+      },
+      {
+        "id": "costo_agua",
+        "text": "¿Cuál es el costo actual del agua que utiliza el edificio (moneda/unidad de medición)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión de las soluciones que propongamos."
+      },
+      {
+        "id": "cantidad_agua_consumida",
+        "text": "¿Qué cantidad de agua consume el edificio (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "El volumen de consumo determina la escala del sistema de tratamiento necesario y es crucial para calcular costos y beneficios."
+      },
+      {
+        "id": "cantidad_agua_residual",
+        "text": "¿Qué cantidad de aguas residuales genera el edificio (unidad de medición/unidad de tiempo)?",
+        "type": "text",
+        "required": true,
+        "explanation": "Esta información nos permite dimensionar correctamente los sistemas de tratamiento requeridos."
+      },
+      {
+        "id": "num_personas",
+        "text": "¿Aproximadamente cuántas personas viven en el edificio?",
+        "type": "text",
+        "required": true,
+        "explanation": "El número de personas ayuda a estimar el consumo de agua y permite dimensionar soluciones adecuadas."
+      },
+      {
+        "id": "parametros_agua",
+        "text": "¿Puede proporcionar los parámetros más importantes del agua del edificio?",
+        "type": "complex",
+        "subquestions": [
+          {
+            "id": "dureza",
+            "text": "Dureza",
+            "type": "text"
+          },
+          {
+            "id": "cloro",
+            "text": "Cloro",
+            "type": "text"
+          },
+          {
+            "id": "microorganismos",
+            "text": "Microorganismos",
+            "type": "text"
+          }
+        ],
+        "required": false,
+        "explanation": "Estos parámetros son críticos para determinar la calidad del agua y planificar los tratamientos necesarios para el edificio."
+      },
+      {
+        "id": "usos_agua",
+        "text": "¿Cuáles son los usos principales del agua en el edificio?",
+        "type": "multiple_select",
+        "options": [
+          "Agua para consumo humano (Bebidas)",
+          "Refrigeración (aire acondicionado)"
+        ],
+        "required": true,
+        "explanation": "Entender los usos específicos del agua nos ayuda a identificar oportunidades de reciclaje y reuso del agua."
+      },
+      {
+        "id": "agua_potable_analisis",
+        "text": "¿Puede proporcionar información sobre volúmenes de agua potable y análisis de la misma?",
+        "type": "text",
+        "required": false,
+        "explanation": "Esta información nos ayuda a entender la calidad del agua de entrada y sus necesidades de tratamiento."
+      },
+      {
+        "id": "objetivo_principal",
+        "text": "¿Cuál es el objetivo principal que está buscando?",
+        "type": "multiple_choice",
+        "options": [
+          "Cumplimiento normativo",
+          "Reducción de la huella ambiental",
+          "Ahorro de costos/Proyecto de retorno de inversión",
+          "Mayor disponibilidad de agua",
+          "Otro (especifique)"
+        ],
+        "required": true,
+        "explanation": "Conocer tu objetivo principal nos ayuda a alinear la solución propuesta con tus prioridades específicas."
+      }
+    ]
+  }
+}

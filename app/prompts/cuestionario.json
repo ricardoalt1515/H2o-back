@@ -1,0 +1,1739 @@
+[
+  {
+    "id": "q0_intro",
+    "type": "info",
+    "text": "¡Hola! Gracias por tomarte el tiempo para responder estas preguntas. La información que nos compartas nos ayudará a diseñar una solución de agua personalizada, eficiente y rentable para tu operación. No te preocupes si no tienes todas las respuestas a la mano; iremos paso a paso y te explicaré por qué cada pregunta es importante. ¡Empecemos!",
+    "explanation": "Antes de entrar en detalles técnicos, me gustaría conocer un poco más sobre tu empresa y el sector en el que opera. Esto nos ayudará a entender mejor tus necesidades y diseñar una solución de agua adecuada para ti. Vamos con las primeras preguntas.",
+    "insight_prompt": "Menciona un dato sobre cómo la gestión eficiente del agua está impactando positivamente a las industrias a nivel global."
+  },
+  {
+    "id": "q1_sector",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q0_intro"
+    ],
+    "question_text": "¿En qué sector opera tu empresa?",
+    "options": [
+      "Industrial",
+      "Comercial",
+      "Municipal",
+      "Residencial"
+    ],
+    "required": true,
+    "explanation": "Identificar el sector general nos da un punto de partida para entender el tipo de uso del agua y regulaciones aplicables."
+  },
+  {
+    "id": "q2_subsector_industrial",
+    "type": "multiple_choice",
+    "depends_on": {
+      "id": "q1_sector",
+      "value": "Industrial"
+    },
+    "question_text": "¿Cuál es el giro específico de tu Empresa dentro del Sector Industrial?",
+    "options": [
+      "Alimentos y Bebidas",
+      "Textil",
+      "Petroquímica",
+      "Farmacéutica",
+      "Minería",
+      "Petróleo y Gas",
+      "Metal/Automotriz",
+      "Cemento",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "El giro específico nos permite afinar las características esperadas del agua residual y los procesos de tratamiento más comunes.",
+    "is_subsector_selector": true
+  },
+  {
+    "id": "q2_subsector_comercial",
+    "type": "multiple_choice",
+    "depends_on": {
+      "id": "q1_sector",
+      "value": "Comercial"
+    },
+    "question_text": "¿Cuál es el giro específico de tu Empresa dentro del Sector Comercial?",
+    "options": [
+      "Hotel",
+      "Edificio de oficinas",
+      "Centro comercial/Comercio minorista",
+      "Restaurante",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Conocer el tipo de negocio comercial nos ayuda a estimar patrones de consumo y tipos de contaminantes.",
+    "is_subsector_selector": true
+  },
+  {
+    "id": "q2_subsector_municipal",
+    "type": "multiple_choice",
+    "depends_on": {
+      "id": "q1_sector",
+      "value": "Municipal"
+    },
+    "question_text": "¿Cuál es el giro específico dentro del Sector Municipal?",
+    "options": [
+      "Gobierno de la ciudad",
+      "Pueblo/Aldea",
+      "Autoridad de servicios de agua",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Entender la entidad municipal nos ayuda a enfocar la solución (agua potable, tratamiento de aguas residuales a gran escala, etc.).",
+    "is_subsector_selector": true
+  },
+  {
+    "id": "q2_subsector_residencial",
+    "type": "multiple_choice",
+    "depends_on": {
+      "id": "q1_sector",
+      "value": "Residencial"
+    },
+    "question_text": "¿Cuál es el giro específico dentro del Sector Residencial?",
+    "options": [
+      "Vivienda unifamiliar",
+      "Edificio multifamiliar",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "El tipo de vivienda influye en la escala y complejidad de la solución.",
+    "is_subsector_selector": true
+  },
+  {
+    "id": "q2_subsector_otro_spec",
+    "type": "text",
+    "depends_on_option": {
+      "id_prefix": "q2_subsector_",
+      "option_value": "Otro"
+    },
+    "question_text": "Por favor, especifica el giro 'Otro':",
+    "required": true,
+    "explanation": "Detallar el giro nos ayuda a entender mejor tus necesidades específicas."
+  },
+  {
+    "id": "q3_common_intro",
+    "type": "info",
+    "depends_on_answered": [
+      "q2_subsector_industrial",
+      "q2_subsector_comercial",
+      "q2_subsector_municipal",
+      "q2_subsector_residencial",
+      "q2_subsector_otro_spec"
+    ],
+    "text": "Excelente. Para continuar, quiero conocer algunos datos clave sobre tu [TIPO_ENTIDAD], como la ubicación y el costo del agua. Estos factores pueden influir en la viabilidad de distintas soluciones. Por ejemplo, en ciertas regiones, el agua puede ser más costosa o escasa, lo que hace que una solución de tratamiento o reutilización sea aún más valiosa. ¡Vamos con las siguientes preguntas!",
+    "insight_prompt": "Menciona cómo la escasez de agua en ciertas regiones está impulsando la innovación en tecnologías de tratamiento y reúso."
+  },
+  {
+    "id": "q4_entity_name",
+    "type": "text",
+    "depends_on_answered": [
+      "q3_common_intro"
+    ],
+    "question_text": "1. ¿Cuál es el nombre de tu [TIPO_ENTIDAD] o proyecto?",
+    "required": true,
+    "explanation": "Esto nos ayuda a personalizar nuestra propuesta y facilita el seguimiento de tu caso."
+  },
+  {
+    "id": "q5_location",
+    "type": "text",
+    "depends_on_answered": [
+      "q4_entity_name"
+    ],
+    "question_text": "2. ¿Cuál es la ubicación (Colonia/Localidad, Ciudad/Municipio, Código Postal, coordenadas si las tiene)?",
+    "required": true,
+    "explanation": "La ubicación es importante para entender factores regionales, normativas locales y condiciones que afectan la solución."
+  },
+  {
+    "id": "q6_water_cost",
+    "type": "text",
+    "depends_on_answered": [
+      "q5_location"
+    ],
+    "question_text": "3. ¿Cuál es el costo actual del agua que utilizas (ej: $X por m³ o tarifa mensual/anual)?",
+    "required": false,
+    "explanation": "Conocer el costo actual nos permite calcular el potencial ahorro y el retorno de inversión (ROI) de las soluciones."
+  },
+  {
+    "id": "q7_water_consumption",
+    "type": "text",
+    "depends_on_answered": [
+      "q6_water_cost"
+    ],
+    "question_text": "4. ¿Qué cantidad de agua consumes en promedio (ej: Y m³/día, L/mes)?",
+    "required": true,
+    "explanation": "El volumen de consumo determina la escala del sistema necesario y es crucial para calcular costos y beneficios."
+  },
+  {
+    "id": "q8_wastewater_generation",
+    "type": "text",
+    "depends_on_answered": [
+      "q7_water_consumption"
+    ],
+    "question_text": "5. ¿Qué cantidad de aguas residuales generas en promedio (ej: Z m³/día, L/mes)?",
+    "required": true,
+    "explanation": "Esta es la base para dimensionar el sistema de tratamiento."
+  },
+  {
+    "id": "q9_people_count",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q8_wastewater_generation"
+    ],
+    "question_text": "6. ¿Aproximadamente cuántas personas usan/visitan/habitan las instalaciones regularmente (diario o semanal)?",
+    "options": [
+      "Menos de 20",
+      "20-49",
+      "50-199",
+      "200-499",
+      "500-999",
+      "1000-1999",
+      "2000-4999",
+      "5000 o más"
+    ],
+    "required": true,
+    "explanation": "El número de personas ayuda a estimar cargas (especialmente sanitarias) y picos de uso."
+  },
+  {
+    "id": "q10_technical_intro",
+    "type": "info",
+    "depends_on_answered": [
+      "q9_people_count"
+    ],
+    "text": "Ahora vamos a hablar un poco más sobre la calidad del agua y los requerimientos técnicos. Esta información es crucial porque cada fuente de agua y cada proceso tienen características únicas. Saber más sobre los contaminantes o parámetros normativos nos permite diseñar una solución eficiente y adaptada a tus necesidades. ¡Hablemos más sobre esto!",
+    "insight_prompt": "Explica brevemente cómo un contaminante inesperado puede afectar el rendimiento de una planta de tratamiento si no se considera en el diseño."
+  },
+  {
+    "id": "q11_wastewater_peaks",
+    "type": "text",
+    "depends_on_answered": [
+      "q10_technical_intro"
+    ],
+    "question_text": "7. Además del promedio, ¿conoces los volúmenes PICO de generación de agua residual (ej: caudal máximo horario o diario, L/pico)?",
+    "required": false,
+    "explanation": "Conocer los picos nos permite diseñar tanques de ecualización y evitar sobrecargas en el sistema."
+  },
+  {
+    "id": "q12_request_analysis_upload",
+    "type": "request_upload",
+    "depends_on_answered": [
+      "q11_wastewater_peaks"
+    ],
+    "question_text": "8. Sería ideal si pudiera subir/adjuntar un análisis de agua residual reciente (preferencia históricos).",
+    "required": false,
+    "explanation": "Un análisis completo es la mejor forma de diseñar el tratamiento. Si no lo tiene, le preguntaremos por los parámetros clave.",
+    "upload_purpose": "wastewater_analysis"
+  },
+  {
+    "id": "q13_params_alimentos",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Alimentos y Bebidas",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Alimentos y Bebidas:",
+    "fields": [
+      {
+        "id": "q13_param_dbo_ab",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dqo_ab",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_ab",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_ab",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_ph_ab",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_gya_ab",
+        "label": "Grasas y Aceites (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Estos parámetros definen la carga contaminante principal y son esenciales para seleccionar las tecnologías de tratamiento."
+  },
+  {
+    "id": "q13_params_textil",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Textil",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Textil:",
+    "fields": [
+      {
+        "id": "q13_param_color_t",
+        "label": "Color (Pt-Co o ADMI)",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_sst_t",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_ph_t",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_metales_t",
+        "label": "Metales pesados (ej: Cr, Pb) (mg/L)",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_dqo_t",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_t",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "En textil, el color, pH y metales son críticos además de la carga orgánica."
+  },
+  {
+    "id": "q13_params_petroquimica",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Petroquímica",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Petroquímica:",
+    "fields": [
+      {
+        "id": "q13_param_sdt_p",
+        "label": "SDT (Sólidos disueltos totales) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_hidrocarburos_p",
+        "label": "Hidrocarburos (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_ph_p",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_dqo_p",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_metales_p",
+        "label": "Metales pesados (mg/L)",
+        "field_type": "text"
+      }
+    ],
+    "required": false,
+    "explanation": "SDT, hidrocarburos y DQO suelen ser claves en aguas petroquímicas."
+  },
+  {
+    "id": "q13_params_farmaceutica",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Farmacéutica",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Farmacéutica:",
+    "fields": [
+      {
+        "id": "q13_param_bact_f",
+        "label": "Bacterias y patógenos (UFC/mL o Presencia/Ausencia)",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_cond_f",
+        "label": "Conductividad (µS/cm)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_ph_f",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_cot_f",
+        "label": "Carbón Orgánico Total (COT) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_endo_f",
+        "label": "Endotoxinas (EU/mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_api_f",
+        "label": "Antibióticos/APIs específicos (si se conocen) (mg/L o µg/L)",
+        "field_type": "text"
+      }
+    ],
+    "required": false,
+    "explanation": "Parámetros como COT, conductividad y APIs son cruciales en el sector farmacéutico."
+  },
+  {
+    "id": "q13_params_mineria",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Minería",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Minería:",
+    "fields": [
+      {
+        "id": "q13_param_metales_m",
+        "label": "Metales Pesados (especificar cuáles si es posible) (mg/L)",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_sst_m",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_acidez_m",
+        "label": "Acidez/Alcalinidad (mg/L CaCO3)",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_sdt_m",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_cianuros_m",
+        "label": "Cianuros (si aplica) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sulfatos_m",
+        "label": "Sulfatos (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Metales pesados, pH extremo y sulfatos son comunes en aguas de minería."
+  },
+  {
+    "id": "q13_params_oilgas",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Petróleo y Gas",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Petróleo y Gas:",
+    "fields": [
+      {
+        "id": "q13_param_hidrocarburos_og",
+        "label": "Hidrocarburos (TPH) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_og",
+        "label": "SDT (Salinidad) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_ph_og",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_sst_og",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_metales_og",
+        "label": "Metales pesados (ej: Bario, Estroncio) (mg/L)",
+        "field_type": "text"
+      }
+    ],
+    "required": false,
+    "explanation": "Alta salinidad (SDT), hidrocarburos y metales específicos son característicos."
+  },
+  {
+    "id": "q13_params_metalauto",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Metal/Automotriz",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Metal/Automotriz:",
+    "fields": [
+      {
+        "id": "q13_param_metales_ma",
+        "label": "Metales pesados (Zn, Cr, Ni, etc.) (mg/L)",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_gya_ma",
+        "label": "Grasas y aceites (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_ph_ma",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_sst_ma",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_cond_ma",
+        "label": "Conductividad (µS/cm)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dqo_ma",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Metales pesados de procesos de acabado y grasas/aceites son típicos."
+  },
+  {
+    "id": "q13_params_cemento",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Cemento",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas para Cemento:",
+    "fields": [
+      {
+        "id": "q13_param_ph_c",
+        "label": "pH",
+        "field_type": "number",
+        "min": 0,
+        "max": 14,
+        "step": 0.1
+      },
+      {
+        "id": "q13_param_sst_c",
+        "label": "SST (Sólidos suspendidos) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_cond_c",
+        "label": "Conductividad (µS/cm)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sulfatos_c",
+        "label": "Sulfatos (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dqo_c",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Alto pH y sólidos suspendidos son característicos en la industria del cemento."
+  },
+  {
+    "id": "q13_params_hotel",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Hotel",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas del agua residual de Hotel:",
+    "fields": [
+      {
+        "id": "q13_param_cloro_h",
+        "label": "Cloro residual (si aplica) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dureza_h",
+        "label": "Dureza (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_micro_h",
+        "label": "Microorganismos (Coliformes Fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_h",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_silice_h",
+        "label": "Sílice (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_h",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_h",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "DBO, SST y microorganismos son claves en aguas residuales de hoteles (lavandería, sanitarios, cocinas)."
+  },
+  {
+    "id": "q13_params_oficinas",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Edificio de oficinas",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas del agua residual de Edificio de Oficinas:",
+    "fields": [
+      {
+        "id": "q13_param_cloro_o",
+        "label": "Cloro residual (torres enfriamiento) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dureza_o",
+        "label": "Dureza (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_micro_o",
+        "label": "Microorganismos (Coliformes Fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_o",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_silice_o",
+        "label": "Sílice (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_o",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_o",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Similar a hoteles pero con potencial aporte de torres de enfriamiento (cloro, sílice)."
+  },
+  {
+    "id": "q13_params_centrocomercial",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Centro comercial/Comercio minorista",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas del agua residual de Centro Comercial:",
+    "fields": [
+      {
+        "id": "q13_param_cloro_cc",
+        "label": "Cloro residual (si hay fuentes) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dureza_cc",
+        "label": "Dureza (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_micro_cc",
+        "label": "Microorganismos (Coliformes Fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_cc",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_silice_cc",
+        "label": "Sílice (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_cc",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_cc",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_gya_cc",
+        "label": "Grasas y Aceites (zona comidas) (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Mezcla de aguas sanitarias y potencialmente de áreas de comida (grasas)."
+  },
+  {
+    "id": "q13_params_restaurante",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Restaurante",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas del agua residual de Restaurante:",
+    "fields": [
+      {
+        "id": "q13_param_cloro_r",
+        "label": "Cloro residual (limpieza) (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dureza_r",
+        "label": "Dureza (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_micro_r",
+        "label": "Microorganismos (Coliformes Fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_r",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_silice_r",
+        "label": "Sílice (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_r",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_r",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_gya_r",
+        "label": "Grasas y Aceites (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Altas cargas de DBO, SST y Grasas y Aceites son típicas en restaurantes."
+  },
+  {
+    "id": "q13_params_gobciudad",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Gobierno de la ciudad",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores TÍPICOS del agua residual municipal que gestionan:",
+    "fields": [
+      {
+        "id": "q13_param_sst_gc",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_gc",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_turb_gc",
+        "label": "Turbidez o color",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_dqo_gc",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_gc",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_gya_gc",
+        "label": "Grasas y Aceites (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_metales_gc",
+        "label": "Metales Pesados (si hay industria conectada) (mg/L)",
+        "field_type": "text"
+      }
+    ],
+    "required": false,
+    "explanation": "Parámetros típicos de agua residual urbana (DBO, SST, nutrientes no listados pero importantes)."
+  },
+  {
+    "id": "q13_params_puebloaldea",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Pueblo/Aldea",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores TÍPICOS del agua residual de la localidad:",
+    "fields": [
+      {
+        "id": "q13_param_sdt_pa",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_bact_pa",
+        "label": "Bacterias (Coliformes fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dureza_pa",
+        "label": "Dureza Total (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_pa",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_pa",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Principalmente agua residual doméstica."
+  },
+  {
+    "id": "q13_params_autagua",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Autoridad de servicios de agua",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores TÍPICOS del agua residual que tratan:",
+    "fields": [
+      {
+        "id": "q13_param_sst_as",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sdt_as",
+        "label": "SDT (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_turb_as",
+        "label": "Turbidez o color",
+        "field_type": "text"
+      },
+      {
+        "id": "q13_param_dqo_as",
+        "label": "DQO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_as",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_gya_as",
+        "label": "Grasas y Aceites (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_metales_as",
+        "label": "Metales Pesados (mg/L)",
+        "field_type": "text"
+      }
+    ],
+    "required": false,
+    "explanation": "Similar a agua municipal, pero puede variar según la región y tipo de industria conectada."
+  },
+  {
+    "id": "q13_params_unifamiliar",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Vivienda unifamiliar",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas del agua residual de la vivienda:",
+    "fields": [
+      {
+        "id": "q13_param_dureza_vu",
+        "label": "Dureza (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_cloro_vu",
+        "label": "Cloro residual (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_micro_vu",
+        "label": "Microorganismos (Coliformes Fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_vu",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_vu",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Agua residual doméstica típica."
+  },
+  {
+    "id": "q13_params_multifamiliar",
+    "type": "form_group",
+    "depends_on": {
+      "subsector": "Edificio multifamiliar",
+      "not_answered": "q12_request_analysis_upload"
+    },
+    "question_text": "Como no contamos con análisis, por favor indica los valores aproximados que conozcas del agua residual del edificio:",
+    "fields": [
+      {
+        "id": "q13_param_dureza_vm",
+        "label": "Dureza (mg/L CaCO3)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_cloro_vm",
+        "label": "Cloro residual (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_micro_vm",
+        "label": "Microorganismos (Coliformes Fecales) (NMP/100mL)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_dbo_vm",
+        "label": "DBO (mg/L)",
+        "field_type": "number"
+      },
+      {
+        "id": "q13_param_sst_vm",
+        "label": "SST (mg/L)",
+        "field_type": "number"
+      }
+    ],
+    "required": false,
+    "explanation": "Agua residual doméstica típica, pero a mayor escala."
+  },
+  {
+    "id": "q14_uses_alimentos",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Alimentos y Bebidas"
+    },
+    "depends_on_answered": [
+      "q13_params_alimentos",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "9. ¿Cuáles son tus principales usos del agua en tu proceso?",
+    "options": [
+      "Agua como materia Prima",
+      "Limpieza y Saneamiento",
+      "Procesos de enfriamiento",
+      "Generación de vapor (calderas)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Entender los usos nos ayuda a identificar oportunidades específicas de reciclaje y reúso."
+  },
+  {
+    "id": "q14_uses_textil",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Textil"
+    },
+    "depends_on_answered": [
+      "q13_params_textil",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son tus principales usos del agua en tu proceso textil?",
+    "options": [
+      "Lavado de telas",
+      "Teñido e impresión",
+      "Enjuague y acabado",
+      "Agua de refrigeración",
+      "Agua para Calderas (generación de vapor)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Los procesos de teñido y acabado son grandes consumidores y generan aguas residuales complejas."
+  },
+  {
+    "id": "q14_uses_petroquimica",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Petroquímica"
+    },
+    "depends_on_answered": [
+      "q13_params_petroquimica",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "10. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Agua de enfriamiento",
+      "Agua de procesos (Reacciones químicas)",
+      "Generación de vapor",
+      "Agua contraincendios",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "El enfriamiento y los procesos químicos son usos clave en petroquímica."
+  },
+  {
+    "id": "q14_uses_farmaceutica",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Farmacéutica"
+    },
+    "depends_on_answered": [
+      "q13_params_farmaceutica",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Formulación y producción de medicamentos",
+      "Equipo de esterilización",
+      "Enfriamiento de agua",
+      "Agua para calderas (generación de vapor)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "La calidad del agua es crítica para formulación y esterilización."
+  },
+  {
+    "id": "q14_uses_mineria",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Minería"
+    },
+    "depends_on_answered": [
+      "q13_params_mineria",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Procesamiento de minerales",
+      "Supresión de polvos",
+      "Refrigeración de equipos",
+      "Consumo en los trabajadores",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "El procesamiento de minerales y la supresión de polvos son grandes consumidores."
+  },
+  {
+    "id": "q14_uses_oilgas",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Petróleo y Gas"
+    },
+    "depends_on_answered": [
+      "q13_params_oilgas",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "10. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Recuperación mejorada de petróleo",
+      "Preparación del fluido de perforación",
+      "Procesos de refinería",
+      "Sistemas de enfriamiento",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Usos intensivos en agua como la recuperación mejorada y fluidos de perforación."
+  },
+  {
+    "id": "q14_uses_metalauto",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Metal/Automotriz"
+    },
+    "depends_on_answered": [
+      "q13_params_metalauto",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "12. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Lavado de piezas",
+      "Acabado de metales (galvanoplastia, pintura)",
+      "Sistemas de refrigeración",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Procesos de acabado y lavado son clave en este sector."
+  },
+  {
+    "id": "q14_uses_cemento",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Cemento"
+    },
+    "depends_on_answered": [
+      "q13_params_cemento",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Mezclado de concreto",
+      "Enfriamiento",
+      "Supresión de polvo",
+      "Otros (especifique)"
+    ],
+    "required": true,
+    "explanation": "Mezclado, enfriamiento y control de polvo son los usos principales."
+  },
+  {
+    "id": "q14_uses_hotel",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Hotel"
+    },
+    "depends_on_answered": [
+      "q13_params_hotel",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son sus usos del agua?",
+    "options": [
+      "Suministro a habitaciones",
+      "Piscina y SPA",
+      "Lavandería",
+      "Cocina/Restaurante",
+      "Riego de jardines",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Habitaciones, lavandería y piscina suelen ser los mayores consumidores."
+  },
+  {
+    "id": "q14_uses_oficinas",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Edificio de oficinas"
+    },
+    "depends_on_answered": [
+      "q13_params_oficinas",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles serán sus usos de agua?",
+    "options": [
+      "Consumo humano (sanitarios, bebederos)",
+      "Refrigeración (torres de enfriamiento)",
+      "Limpieza",
+      "Riego de jardines",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Sanitarios y refrigeración son los usos predominantes."
+  },
+  {
+    "id": "q14_uses_centrocomercial",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Centro comercial/Comercio minorista"
+    },
+    "depends_on_answered": [
+      "q13_params_centrocomercial",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles serán sus usos de agua?",
+    "options": [
+      "Consumo humano (sanitarios, bebederos, fuentes)",
+      "Refrigeración",
+      "Área de Alimentos",
+      "Limpieza",
+      "Riego",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Mezcla de usos sanitarios, refrigeración y potencialmente área de alimentos."
+  },
+  {
+    "id": "q14_uses_restaurante",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Restaurante"
+    },
+    "depends_on_answered": [
+      "q13_params_restaurante",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles serán sus usos de agua?",
+    "options": [
+      "Cocina (preparación, cocción)",
+      "Lavalozas",
+      "Preparación de bebidas",
+      "Limpieza",
+      "Sanitarios",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Cocina y lavalozas son los principales consumidores."
+  },
+  {
+    "id": "q14_uses_gobciudad",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Gobierno de la ciudad"
+    },
+    "depends_on_answered": [
+      "q13_params_gobciudad",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son los usos principales del agua gestionada?",
+    "options": [
+      "Suministro de agua potable a la población",
+      "Fuentes públicas y riego de parques",
+      "Servicios municipales (bomberos, limpieza)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Principalmente suministro potable y servicios públicos."
+  },
+  {
+    "id": "q14_uses_puebloaldea",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Pueblo/Aldea"
+    },
+    "depends_on_answered": [
+      "q13_params_puebloaldea",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son los usos principales del agua?",
+    "options": [
+      "Suministro de agua potable",
+      "Riego agrícola o de jardines",
+      "Uso doméstico general",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Potable y riego suelen ser los más importantes."
+  },
+  {
+    "id": "q14_uses_autagua",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Autoridad de servicios de agua"
+    },
+    "depends_on_answered": [
+      "q13_params_autagua",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son los destinos principales del agua tratada o gestionada?",
+    "options": [
+      "Suministro de agua potable",
+      "Descarga a cuerpo receptor",
+      "Reúso agrícola",
+      "Reúso industrial",
+      "Reúso municipal (riego)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Define los objetivos de calidad del tratamiento."
+  },
+  {
+    "id": "q14_uses_unifamiliar",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Vivienda unifamiliar"
+    },
+    "depends_on_answered": [
+      "q13_params_unifamiliar",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "11. ¿Cuáles son los usos principales del agua en su hogar?",
+    "options": [
+      "Bebidas y Cocina",
+      "Limpieza personal (ducha, lavabo)",
+      "Sanitarios",
+      "Lavado de ropa/trastes",
+      "Riego de jardín",
+      "Limpieza general",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Ayuda a estimar volúmenes y tipos de aguas grises/negras."
+  },
+  {
+    "id": "q14_uses_multifamiliar",
+    "type": "multiple_select",
+    "depends_on": {
+      "subsector": "Edificio multifamiliar"
+    },
+    "depends_on_answered": [
+      "q13_params_multifamiliar",
+      "q12_request_analysis_upload"
+    ],
+    "question_text": "13. ¿Cuáles son los usos principales del agua en el edificio?",
+    "options": [
+      "Agua para consumo humano (Bebidas, cocina, sanitarios)",
+      "Refrigeración (aire acondicionado central)",
+      "Lavandería común (si aplica)",
+      "Riego de áreas comunes",
+      "Limpieza",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Similar a vivienda unifamiliar pero con posibles usos comunes adicionales."
+  },
+  {
+    "id": "q14_uses_otro_spec",
+    "type": "text",
+    "depends_on_option": {
+      "id_prefix": "q14_uses_",
+      "option_value": "Otro"
+    },
+    "question_text": "Por favor, especifica el uso 'Otro':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q15_water_source",
+    "type": "multiple_choice",
+    "depends_on_answered_prefix": [
+      "q14_uses_"
+    ],
+    "question_text": "10. ¿Cuál es tu fuente principal de agua?",
+    "options": [
+      "Agua municipal",
+      "Agua de pozo",
+      "Cosecha de agua Pluvial",
+      "Fuente natural (río, lago)",
+      "Sistema de agua purificada (para ciertos procesos)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "La fuente del agua afecta la calidad inicial y la necesidad (o no) de pretratamiento."
+  },
+  {
+    "id": "q15_water_source_otro",
+    "type": "text",
+    "depends_on": {
+      "id": "q15_water_source",
+      "value": "Otro"
+    },
+    "question_text": "Por favor, especifica la fuente 'Otra':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q16_potable_water_volume",
+    "type": "text",
+    "depends_on_answered": [
+      "q15_water_source",
+      "q15_water_source_otro"
+    ],
+    "question_text": "12a. Si usas agua potable adicional (diferente a la fuente principal), ¿qué volúmenes consumes (promedio y picos)?",
+    "required": false,
+    "explanation": "Importante si hay una línea separada de agua potable significativa."
+  },
+  {
+    "id": "q17_potable_analysis_upload",
+    "type": "request_upload",
+    "depends_on_answered": [
+      "q16_potable_water_volume"
+    ],
+    "question_text": "12b. Si tienes análisis de calidad de esa agua potable, puedes adjuntarlo.",
+    "required": false,
+    "explanation": "Útil para entender la calidad del agua de entrada si se planea reúso avanzado o hay problemas específicos.",
+    "upload_purpose": "potable_water_analysis"
+  },
+  {
+    "id": "q18_objectives_intro",
+    "type": "info",
+    "depends_on_answered": [
+      "q16_potable_water_volume",
+      "q17_potable_analysis_upload"
+    ],
+    "text": "Cada [TIPO_ENTIDAD] tiene diferentes motivaciones para invertir en soluciones hídricas. Algunos necesitan cumplir con regulaciones, otros quieren reducir costos o mejorar la sostenibilidad. Entendiendo tu principal objetivo nos ayuda a priorizar las tecnologías adecuadas y garantizar que la solución se alinee con su negocio. ¡Háganos saber qué es lo que impulsa este proyecto para usted!",
+    "insight_prompt": "Menciona un ejemplo de cómo una entidad similar al [SUBSECTOR] logró beneficios (costos, sostenibilidad) con un proyecto de agua."
+  },
+  {
+    "id": "q19_main_objective",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q18_objectives_intro"
+    ],
+    "question_text": "13. ¿Cuál es el objetivo PRINCIPAL que estás buscando con este proyecto?",
+    "options": [
+      "Cumplimiento normativo",
+      "Reducción de la huella ambiental",
+      "Ahorro de costos / ROI",
+      "Mayor disponibilidad de agua",
+      "Mejorar calidad del agua para proceso/consumo",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Priorizar el objetivo principal guía el diseño hacia la solución más efectiva para sus metas."
+  },
+  {
+    "id": "q19_main_objective_otro",
+    "type": "text",
+    "depends_on": {
+      "id": "q19_main_objective",
+      "value": "Otro"
+    },
+    "question_text": "Por favor, especifica el objetivo principal 'Otro':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q20_reuse_discharge_objectives",
+    "type": "multiple_select",
+    "depends_on_answered": [
+      "q19_main_objective",
+      "q19_main_objective_otro"
+    ],
+    "question_text": "14. ¿Cuáles son tus objetivos específicos para el agua tratada (reúso o descarga)?",
+    "options": [
+      "Uso en riego de áreas verdes",
+      "Reúso en sanitarios",
+      "Reúso en procesos industriales",
+      "Cumplimiento normativo para descarga a alcantarillado",
+      "Cumplimiento normativo para descarga a cuerpo de agua",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "Saber el destino final del agua tratada define el nivel de tratamiento requerido."
+  },
+  {
+    "id": "q20_reuse_discharge_otro",
+    "type": "text",
+    "depends_on_option": {
+      "id": "q20_reuse_discharge_objectives",
+      "option_value": "Otro"
+    },
+    "question_text": "Por favor, especifica el objetivo de reúso/descarga 'Otro':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q21_current_discharge",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q20_reuse_discharge_objectives",
+      "q20_reuse_discharge_otro"
+    ],
+    "question_text": "15. ¿Actualmente a dónde se descargan las aguas residuales SIN tratar (o pre-tratadas)?",
+    "options": [
+      "Alcantarillado municipal",
+      "Cuerpo de agua natural (Río, Lago, Subsuelo)",
+      "Fosa séptica / Sistema local",
+      "No se descargan (se evaporan, infiltran, etc.)",
+      "Otro"
+    ],
+    "required": true,
+    "explanation": "El punto de descarga actual y sus regulaciones asociadas son un factor clave."
+  },
+  {
+    "id": "q21_current_discharge_otro",
+    "type": "text",
+    "depends_on": {
+      "id": "q21_current_discharge",
+      "value": "Otro"
+    },
+    "question_text": "Por favor, especifica el lugar de descarga actual 'Otro':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q22_constraints_intro",
+    "type": "info",
+    "depends_on_answered": [
+      "q21_current_discharge",
+      "q21_current_discharge_otro"
+    ],
+    "text": "Cada proyecto presenta su propio conjunto de desafíos, ya sean limitaciones de espacio, presupuesto, limitaciones o requisitos reglamentarios. Al comprender estos factores desde el principio, podemos diseñar un sistema que se ajuste a sus limitaciones y al mismo tiempo ofrezca el mejor rendimiento posible. Si hay inquietudes específicas, ¡háganoslo saber para que podamos incluirlas en nuestras recomendaciones!"
+  },
+  {
+    "id": "q23_restrictions",
+    "type": "multiple_select",
+    "depends_on_answered": [
+      "q22_constraints_intro"
+    ],
+    "question_text": "16. ¿Tienes alguna de estas restricciones o consideraciones importantes para el proyecto?",
+    "options": [
+      "Limitaciones de espacio físico o logística",
+      "Restricciones normativas específicas (límites de descarga muy estrictos)",
+      "Calidad del agua de entrada muy variable o compleja (dureza, metales, etc.)",
+      "Preferencia o rechazo por ciertas tecnologías (ej: no químicos, sí biológico)",
+      "Presupuesto de inversión (CAPEX) limitado (especificar rango si es posible)",
+      "Preocupación por costos operativos (OPEX) (energía, químicos, personal)",
+      "Dificultad para manejo/disposición de residuos (lodos, salmueras)",
+      "Disponibilidad limitada de energía eléctrica en sitio",
+      "Otros (especifique)"
+    ],
+    "required": false,
+    "explanation": "Identificar restricciones desde el inicio nos permite proponer soluciones viables y realistas."
+  },
+  {
+    "id": "q23_restrictions_budget_range",
+    "type": "text",
+    "depends_on_option": {
+      "id": "q23_restrictions",
+      "option_value": "Presupuesto de inversión (CAPEX) limitado (especificar rango si es posible)"
+    },
+    "question_text": "Por favor, especifica el rango de presupuesto CAPEX aproximado:",
+    "required": false,
+    "explanation": "Un rango nos ayuda mucho a dimensionar la solución."
+  },
+  {
+    "id": "q23_restrictions_other",
+    "type": "text",
+    "depends_on_option": {
+      "id": "q23_restrictions",
+      "option_value": "Otros (especifique)"
+    },
+    "question_text": "Por favor, especifica las restricciones 'Otras':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q24_existing_infra",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q23_restrictions"
+    ],
+    "question_text": "17. ¿Cuentas actualmente con algún sistema de tratamiento de agua (residual o potable) en el sitio?",
+    "options": [
+      "Si",
+      "No"
+    ],
+    "required": true,
+    "explanation": "Saber si existe infraestructura previa nos permite evaluar posibles integraciones o mejoras."
+  },
+  {
+    "id": "q25_existing_infra_desc",
+    "type": "textarea",
+    "depends_on": {
+      "id": "q24_existing_infra",
+      "value": "Si"
+    },
+    "question_text": "17a. Por favor, describe brevemente los procesos existentes (ej: trampa de grasas, fosa séptica, filtro simple, etc.).",
+    "required": true,
+    "explanation": "Una breve descripción nos da contexto sobre lo que ya está implementado."
+  },
+  {
+    "id": "q26_existing_infra_upload",
+    "type": "request_upload",
+    "depends_on": {
+      "id": "q24_existing_infra",
+      "value": "Si"
+    },
+    "question_text": "17b. Si tienes diagramas, layouts, fotos o descripciones de la tecnología existente, adjúntalos por favor.",
+    "required": false,
+    "explanation": "La documentación visual y técnica de sistemas existentes es extremadamente útil para el diseño.",
+    "upload_purpose": "existing_system_docs"
+  },
+  {
+    "id": "q27_budget_intro",
+    "type": "info",
+    "depends_on_answered": [
+      "q24_existing_infra",
+      "q25_existing_infra_desc",
+      "q26_existing_infra_upload"
+    ],
+    "text": "Por último, repasaremos el presupuesto, las opciones de financiación y los plazos. Algunas empresas prefieren hacerlo por adelantado inversiones, mientras que otros exploran soluciones de financiación. Si tienes un presupuesto estimado o específico Teniendo en cuenta el plazo, compartir esos detalles nos ayuda a proponer la solución más realista y factible. Y, por supuesto, ¡necesitaremos sus datos de contacto para realizar un seguimiento con una propuesta personalizada!",
+    "insight_prompt": "Menciona brevemente cómo el análisis de ciclo de vida (no solo CAPEX) ayuda a tomar mejores decisiones de inversión en agua."
+  },
+  {
+    "id": "q28_budget_estimate",
+    "type": "text",
+    "depends_on_answered": [
+      "q27_budget_intro"
+    ],
+    "question_text": "18. ¿Tienes un presupuesto estimado o un rango de inversión en mente para este proyecto?",
+    "required": false,
+    "explanation": "Un estimado del presupuesto nos ayuda a alinear las soluciones tecnológicas con la viabilidad financiera."
+  },
+  {
+    "id": "q29_project_timeline",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q28_budget_estimate"
+    ],
+    "question_text": "19. ¿En qué plazo de tiempo tienes contemplado iniciar o completar este proyecto?",
+    "options": [
+      "Urgente / Inmediato (0-3 meses)",
+      "Corto Plazo (3-6 meses)",
+      "Mediano Plazo (6-12 meses)",
+      "Largo Plazo (1-2 años)",
+      "Aún sin definir",
+      "Otro"
+    ],
+    "required": false,
+    "explanation": "El plazo deseado influye en la planificación y selección de tecnologías."
+  },
+  {
+    "id": "q29_project_timeline_otro",
+    "type": "text",
+    "depends_on": {
+      "id": "q29_project_timeline",
+      "value": "Otro"
+    },
+    "question_text": "Por favor, especifica el plazo 'Otro':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q30_financing_available",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q29_project_timeline",
+      "q29_project_timeline_otro"
+    ],
+    "question_text": "20. ¿Cuentas con financiamiento propio asegurado para este proyecto?",
+    "options": [
+      "Si, totalmente",
+      "Si, parcialmente",
+      "No, estamos buscando financiamiento",
+      "Aún no evaluado"
+    ],
+    "required": false,
+    "explanation": "Saber la situación del financiamiento nos permite sugerir enfoques o socios adecuados."
+  },
+  {
+    "id": "q31_water_bills_upload",
+    "type": "request_upload",
+    "depends_on_answered": [
+      "q30_financing_available"
+    ],
+    "question_text": "21. ¿Podrías adjuntar recibos recientes de agua (opcional)?",
+    "required": false,
+    "explanation": "Los recibos ayudan a verificar consumos y costos para el análisis ROI. Es opcional pero muy útil.",
+    "upload_purpose": "water_bills"
+  },
+  {
+    "id": "q32_implementation_schedule",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q30_financing_available"
+    ],
+    "question_text": "22. ¿Tienes ya un cronograma estimado para las fases de implementación (diseño, construcción, puesta en marcha)?",
+    "options": [
+      "Si, detallado",
+      "Si, general",
+      "No, aún no"
+    ],
+    "required": false,
+    "explanation": "Un cronograma existente nos ayuda a entender las fases planeadas."
+  },
+  {
+    "id": "q33_future_growth_timeline",
+    "type": "multiple_choice",
+    "depends_on_answered": [
+      "q32_implementation_schedule"
+    ],
+    "question_text": "23. ¿Hay planes de expansión o crecimiento significativo en el sitio a futuro?",
+    "options": [
+      "Si, en Inmediato (0-6 meses)",
+      "Si, en Corto plazo (6-12 meses)",
+      "Si, en Mediano plazo (1-3 años)",
+      "Si, en Largo plazo (>3 años)",
+      "No hay planes de crecimiento",
+      "No estoy seguro",
+      "Otro"
+    ],
+    "required": false,
+    "explanation": "Planificar para el futuro crecimiento asegura que la solución diseñada hoy sea escalable y no quede obsoleta pronto."
+  },
+  {
+    "id": "q33_future_growth_timeline_otro",
+    "type": "text",
+    "depends_on": {
+      "id": "q33_future_growth_timeline",
+      "value": "Otro"
+    },
+    "question_text": "Por favor, especifica los planes de crecimiento 'Otro':",
+    "required": true,
+    "explanation": ""
+  },
+  {
+    "id": "q34_final_summary_step",
+    "type": "summary",
+    "depends_on_answered": [
+      "q33_future_growth_timeline",
+      "q33_future_growth_timeline_otro"
+    ],
+    "prompt_text": "¡Excelente! Hemos recopilado toda la información necesaria. A continuación te presento un resumen para confirmar que todo esté correcto antes de generar la propuesta:"
+  },
+  {
+    "id": "q35_request_confirmation",
+    "type": "confirmation",
+    "depends_on_answered": [
+      "q34_final_summary_step"
+    ],
+    "question_text": "¿La información resumida es correcta? ¿Podemos proceder a generar la propuesta preliminar?",
+    "explanation": "Una vez confirmes, prepararé la propuesta basada en todo lo que hemos discutido. ¡Gracias por tu tiempo y colaboración!"
+  }
+]

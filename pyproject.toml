@@ -1,0 +1,31 @@
+[project]
+name = "backend-chatbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "email-validator>=2.2.0",
+    "fastapi>=0.115.12",
+    "groq>=0.24.0",
+    "openai>=1.77.0",
+    "passlib>=1.7.4",
+    "pydantic-settings>=2.9.1",
+    "pydantic>=2.11.4",
+    "pyjwt>=2.10.1",
+    "python-dotenv>=1.1.0",
+    "python-multipart>=0.0.20",
+    "uvicorn>=0.34.2",
+    "httpx>=0.28.1",
+    "markdown>=3.8",
+    "pdfkit>=1.0.0",
+    "markdown2>=2.5.3",
+    "reportlab>=4.4.0",
+    "xhtml2pdf>=0.2.17",
+    "jinja2>=3.1.6",
+    "sqlalchemy>=2.0.40",
+    "alembic>=1.15.2",
+    "psycopg2-binary>=2.9.10",
+    "bcrypt>=4.3.0",
+    "redis>=6.0.0",
+]
