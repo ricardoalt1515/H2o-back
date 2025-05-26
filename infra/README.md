@@ -1,7 +1,5 @@
 # Infraestructura H₂O Allegiant
 
-Este directorio contiene todos los recursos relacionados con la infraestructura del proyecto H₂O Allegiant.
-
 ## Estructura de directorios
 
 ```
@@ -57,9 +55,3 @@ El proyecto H₂O Allegiant utiliza los siguientes servicios de AWS:
    - Exponer la API
    - HTTPS y terminación SSL
    - Balanceo de carga
-
-## Entornos
-
-- **Producción**: api.h2oassistant.com
-- **Desarrollo**: dev-api.h2oassistant.com (pendiente)
-- **Staging**: staging-api.h2oassistant.com (pendiente)
