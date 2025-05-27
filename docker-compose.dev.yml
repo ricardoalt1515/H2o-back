@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_USER=hydrous
+      - POSTGRES_PASSWORD=hydrous_password
+      - POSTGRES_DB=hydrous
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - REDIS_URL=redis://redis:6379/0
+      - IGNORE_REDIS_ERRORS=True
+      - DEBUG=True
+      - MODEL=gpt-4o-mini
+      - JWT_SECRET_KEY=dev_secret_key_for_local
+      - CORS_ORIGINS="http://localhost:3000,http://localhost:3001"
+      - BACKEND_URL=http://localhost:8000
+    depends_on:
+      - postgress
+      - redis
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  postgres:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=hydrous
+      - POSTGRES_PASSWORD=hydrous_password
+      - POSTGRES_DB=hydrous
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
+
+    

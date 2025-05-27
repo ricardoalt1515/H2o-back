@@ -464,7 +464,7 @@ async def send_message(
                 # Construir respuesta con URL de descarga
                 download_url = f"{settings.BACKEND_URL}{settings.API_V1_STR}/chat/{conversation.id}/download-pdf"
 
-                response_text = f"¡Aquí está tu propuesta! Haz clic para descargar o espera mientras se descarga automáticamente."
+                response_text = f"Proposal Ready! Type 'download pdf' to get your document or click to download it automatically."
                 assistant_message = Message.assistant(response_text)
 
                 await storage_service.add_message_to_conversation(
@@ -593,13 +593,16 @@ async def send_message(
                     download_url = f"{settings.BACKEND_URL}{settings.API_V1_STR}/chat/{conversation.id}/download-pdf"
                     assistant_response_data = {
                         "id": "proposal-complete-" + str(uuid.uuid4())[:8],
-                        "message": "✅ ¡Propuesta Lista! Escribe 'descargar pdf' para obtener tu documento.",
+                        "message": "✅ Proposal ready! Type 'download pdf' to get your document.",
                         "conversation_id": conversation_id,
                         "created_at": datetime.utcnow(),
                         "action": "proposal_complete",
                         "download_url": download_url,
                     }
 
+                    # Forzar mensaje en inglés para la propuesta lista
+                    assistant_response_data["message"] = "✅ Proposal ready! Type 'download pdf' to get your document."
+                    
                     # Añadir mensaje al historial
                     msg_to_add = Message.assistant(assistant_response_data["message"])
                     await storage_service.add_message_to_conversation(
@@ -695,7 +698,8 @@ async def send_message(
 
                         # Preparar respuesta para el usuario
                         download_url = f"{settings.BACKEND_URL}{settings.API_V1_STR}/chat/{conversation.id}/download-pdf"
-                        ai_response_content = "✅ ¡Propuesta Lista! Escribe 'descargar pdf' para obtener tu documento."
+                        # Forzar mensaje en inglés, independientemente de lo que genere el modelo
+                        ai_response_content = "✅ Proposal ready! Type 'download pdf' to get your document."
 
                         # Log detallado para seguimiento
                         logger.info(
