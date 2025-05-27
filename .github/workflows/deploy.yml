@@ -4,13 +4,18 @@ name: Deploy to AWS
 on:
   push:
     branches: [ main ]
-  # Opcional: despliegue manual desde GitHub
   workflow_dispatch:
 
 jobs:
-  test:
-    name: Test & Deploy
+  deploy:
+    name: Build, Test & Deploy
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
+      ECR_REPOSITORY: hydrous-backend
+      ECS_CLUSTER: hydrous-cluster
+      ECS_SERVICE: hydrous-backend-service
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -37,30 +42,68 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      # Crear un directorio para logs y backups
+      - name: Setup deployment logs
+        run: |
+          mkdir -p deploy-logs
+          VERSION=$(date +%Y%m%d%H%M)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          
+      # Guardar información para rollback
+      - name: Backup current deployment for rollback
+        run: |
+          CURRENT_TASK_DEF=$(aws ecs describe-services --cluster ${{ env.ECS_CLUSTER }} --services ${{ env.ECS_SERVICE }} --query 'services[0].taskDefinition' --output text)
+          echo "Definición de tarea actual: $CURRENT_TASK_DEF"
+          echo $CURRENT_TASK_DEF > deploy-logs/last-working-task-${{ env.VERSION }}.txt
+          echo "✅ Información de rollback guardada"
+
+      # Construir y subir la imagen Docker
       - name: Build and push Docker image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: hydrous-backend
-          IMAGE_TAG: ${{ github.sha }}
         run: |
-          # Construir la imagen Docker
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          # Construir la imagen Docker con versión y latest
+          docker build -t $ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:${{ env.VERSION }} -t $ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:latest .
+          
           # Subir la imagen a ECR
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
-      - name: Deploy to AWS
+          docker push $ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:${{ env.VERSION }}
+          docker push $ECR_REGISTRY/${{ env.ECR_REPOSITORY }}:latest
+          
+          echo "✅ Imagen subida a ECR correctamente"
+          
+      # Actualizar el servicio ECS
+      - name: Deploy to ECS
         run: |
-          echo "🚀 Iniciando despliegue a producción..."
-          ./deploy-with-rollback.sh
-          echo "✅ Despliegue completado"
+          echo "🚀 Actualizando servicio ECS..."
+          aws ecs update-service --cluster ${{ env.ECS_CLUSTER }} --service ${{ env.ECS_SERVICE }} --force-new-deployment
+          echo "✅ Servicio ECS actualizado correctamente"
+          
+      # Registrar la información de versión
+      - name: Register deployment version
+        run: |
+          echo "$(date +"%Y-%m-%d %H:%M:%S") - Versión ${{ env.VERSION }} desplegada" >> deploy-logs/deploy-history.log
+          
+      # Guardar logs como artefactos
+      - name: Upload deployment logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: deployment-logs
+          path: deploy-logs/
+          
+      - name: Deployment summary
+        run: |
+          echo "✅ ¡Despliegue iniciado exitosamente!"
+          echo "La aplicación estará disponible en unos minutos en: https://api.h2oassistant.com"
+          echo "Versión desplegada: ${{ env.VERSION }}"
+          echo ""
+          echo "Para monitorear el despliegue:"
+          echo "aws ecs describe-services --cluster ${{ env.ECS_CLUSTER }} --services ${{ env.ECS_SERVICE }} --query 'services[0].deployments'"
 
       - name: Notify deployment status
         if: always()
@@ -70,5 +113,3 @@ jobs:
           else
             echo "❌ Error en el despliegue a producción"
           fi
-      
-    
